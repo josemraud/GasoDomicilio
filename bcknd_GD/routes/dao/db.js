@@ -9,8 +9,9 @@ module.exports = class {
       return _db;
     } else {
       try {
+        
         let client = await mongoClient.connect(process.env.MONGODBURI, { useNewUrlParser: true, useUnifiedTopology: true });
-        _db = client.db(process.env.MONGODBDBNAME);
+        _db = client.db(process.env.MONGODBNAME);
         return _db;
       }catch(e){
         console.log(e);
