@@ -11,7 +11,7 @@ module.exports = class {
         //console.log(_db);
         userColl = await _db.collection('usuarios');
         if (process.env.ENSUREINDEX == "1"){
-          //console.log('Creando Indices de Usuarios');
+          console.log('Creando Indices de Usuarios');
           await userColl.createIndex({"email":1},{unique:true});
         }
         console.log("Coleccion de Usuario asignados");
@@ -26,7 +26,10 @@ module.exports = class {
         const {nombre, apellido, correo, telefono, password} = data;
         try {
             let newUser = {
-                "email": email,
+                "nombre": nombre,
+                "apellido": apellido,
+                "email": correo,
+                "telefono": telefono,
                 "password" : bcrypt.hashSync(password, 10),
                 "lastlogin" : null,
                 "lastpasswordchanged" : null,
@@ -43,9 +46,9 @@ module.exports = class {
     }// crear una nueva cuenta
 
 
-    static async getByEmail(email){
+    static async getByEmail(correo){
         try {
-            let filter = {"email": email};
+            let filter = {"email": correo};
             let user = await userColl.findOne(filter);
             return user;
         } catch (err) {
