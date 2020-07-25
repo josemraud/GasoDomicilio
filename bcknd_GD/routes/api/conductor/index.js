@@ -7,14 +7,16 @@ router.get('/' , function(req, res){
     [
       {
         route:"/",
-        description: "Muestra Documentación del API de Mociones", 
+        description: "Muestra Documentación del API de Conductores", 
         body:"",
         params:"",
         resp:"json"
       }
     ]
   )
-}  ); 
+}); 
+
+
 
 
 privateRouter.get('/private', (req, res)=>{

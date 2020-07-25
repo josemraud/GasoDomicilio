@@ -7,10 +7,38 @@ const init = async () => {
 }
 init();
 
+router.get('/ordenes', async(req,res)=>{
+    try {
+        let ordenes = await model.getAllOrdenes();
+        res.status(200).json(ordenes);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json({"Error":"Algo salio mal al mostrar sus pedidos"});
+    }
+})//Mostrar las ordenes
+
+
+router.get('/info/:codpedido', async (req, res)=>{
+    try{
+        let {codpedido} = req.params;
+        let result = await model.getOneOrden(codpedido);
+        res.status(200).json(result);
+    }catch(err){
+      console.log(err);
+      res.status(500).json({ "Error": "Algo salio mal al buscar su orden" });
+    }
+});//Buscar una orden
+
+
+
 router.post('/addorden',async(req,res)=>{
     try{
-        let {nombre, telefono, direccion} = req.body;
-        const resultado = await model.addOrden(nombre, telefono, direccion);
+        var {gasolinera, fecha, tipocombustible, cantLitros, latitud, longitud, radioKM, tipoPago} = req.body;
+        var estado = "no entregado"
+        latitud = parseFloat(latitud)
+        longitud = parseFloat(longitud)
+        radioKM = parseFloat(radioKM)
+        var resultado = await model.addOrden(gasolinera, fecha, tipocombustible, cantLitros, latitud, longitud, radioKM, tipoPago, estado);
         res.status(200).json(resultado)
     } catch (error){
         console.log(error)
@@ -18,13 +46,18 @@ router.post('/addorden',async(req,res)=>{
     }
 }); //Agregar una orden nueva
 
-router.post('/confirmacion',async(req,res)=>{
 
-});
 
 router.delete('/cancelacion/:codpedido',async(req,res)=>{
-
-});
+    try{
+        const {codpedido} = req.params;
+        const result = await model.deleteOrden(codpedido);
+        res.status(200).json(result);
+    }catch(error){
+        console.log(error)
+        res.status(500).json({"ERROR":"Algo salio mal al cancelar su orden"})
+    }
+}); //Cancelar una orden
 
 
 

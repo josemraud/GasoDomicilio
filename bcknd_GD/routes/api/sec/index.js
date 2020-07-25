@@ -30,7 +30,7 @@ router.post('/ingresar',async(req,res)=>{
       } catch (err) {
         res.status(500).json({ "Error": "Algo Sucendió mal!!" });
     }
-});
+});// logearse
 
 router.post('/crearcuenta',async(req,res)=>{
     try {
@@ -40,11 +40,42 @@ router.post('/crearcuenta',async(req,res)=>{
     } catch (err) {
         res.status(500).json({ "Error": "Algo Sucendió mal!!" });
     }
+});//crear nueva cuenta
+
+router.put('/cambiarPassword/:idusuario',async(req,res)=>{
+    try{
+      var {idusuario} = req.params
+      var {oldPassword, newPassword} = req.body
+      var user = await secModel.getUserById(idusuario);
+      if (await secModel.comparePassword(oldPassword, user.password)) {
+        var result = await secModel.changePasswordById(idusuario,newPassword)
+        res.status(200).json(result);
+      } else {
+        res.status(401).json({"Error":"Su password vieja es incorrecta"});
+      }
+      
+    }catch(error){
+      res.status(500).json({"Error":"Algo salio mal al actualizar su password"})
+    }
+});//Actualizar contrasena
+
+router.put('/recuperacionPassword',async(req,res)=>{
+  try{
+    var {correo, newPassword} = req.body
+    var user = await secModel.getByEmail(correo);
+    if(user.email === correo) {
+      var result = await secModel.changePasswordByCorreo(correo,newPassword)
+      res.status(200).json(result);
+    } else {
+      res.status(401).json({"Error":"Su correo no existe"});
+    }
+    
+  }catch(error){
+    res.status(500).json({"Error":"Algo salio mal al recuperar su password"})
+  }
 });
 
-router.put('/recuperacion/:idusuario',async(req,res)=>{
 
-});
 
 
 module.exports = router;

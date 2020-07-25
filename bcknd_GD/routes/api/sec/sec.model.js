@@ -1,6 +1,8 @@
 const db = require('../../dao/db');
 const ObjectId = require('mongodb').ObjectId;
 const bcrypt = require('bcrypt');
+const { use } = require('passport');
+const e = require('express');
 
 let userColl
 
@@ -55,15 +57,55 @@ module.exports = class {
           console.log(err);
           return err;
         }
+    }
+
+    static async getUserById(idusuario){
+      try {
+          let filter = {"_id": new ObjectId(idusuario)};
+          let user = await userColl.findOne(filter);
+          return user;
+      } catch (err) {
+        console.log(err);
+        return err;
       }
+  }
+
+  
     
-      static async comparePassword( rawPassword, cryptedPassword) {
+    static async comparePassword( rawPassword, cryptedPassword) {
         try {
           return bcrypt.compareSync(rawPassword, cryptedPassword);
         }catch (err){
           return false;
         }
     }
+
+
+    static async changePasswordById(idusuario,newPassword) {
+      try{
+        let filter = {"_id": new ObjectId(idusuario)}
+        let update = {"$set":{"password":bcrypt.hashSync(newPassword, 10)}}
+        const result = await userColl.updateOne(filter,update)
+        return result
+      }catch(error){
+        console.log(error)
+        return error
+      }
+    }
+
+
+    static async changePasswordByCorreo(correo,newPassword) {
+      try{
+        let filter = {"email": correo}
+        let update = {"$set":{"password":bcrypt.hashSync(newPassword, 10)}}
+        const result = await userColl.updateOne(filter,update)
+        return result
+      }catch(error){
+        console.log(error)
+        return error
+      }
+    }
+
 
 
 }   
