@@ -30,6 +30,17 @@ router.get('/info/:codpedido', async (req, res)=>{
 });//Buscar una orden
 
 
+router.get('/info/noEntregado/:estado', async (req, res)=>{
+    try{
+        let {estado} = req.params
+        let resultado = await model.getAllNoEntregados(estado);
+        res.status(200).json(resultado);
+    }catch(err){
+      console.log(err);
+      res.status(500).json({ "Error": "Algo salio mal al buscar su orden" });
+    }
+});//Mostras ordenes no entregadas
+
 
 router.post('/addorden',async(req,res)=>{
     try{

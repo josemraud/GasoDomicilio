@@ -30,6 +30,7 @@ router.use("/sec", secRoutes);
 router.use("/pedido", pedidosRoutes );
 router.use("/conductor", pub)
 router.use("/info_orden", infoRoutes)
+
 const jwtAuthMiddleware = passport.authenticate('jwt', {session:false});
 
 //Privadas

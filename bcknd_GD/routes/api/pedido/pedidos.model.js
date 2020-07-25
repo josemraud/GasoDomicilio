@@ -47,6 +47,17 @@ module.exports = class {
       }
     }//Buscar orden
 
+    static async getAllNoEntregados(estado) {
+      try {
+        let filter = { "estado": estado};
+        const result = await pedidosColl.find(filter);
+        return result.toArray();
+      } catch (error) {
+        console.log(error);
+        return error;
+      }
+    }//Mostrar ordenes no entregadas
+
 
     static async addOrden (gasolinera, fecha, tipocombustible, cantLitros, latitud, longitud, radioKM, tipoPago, estado){
         try{
