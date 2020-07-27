@@ -11,7 +11,7 @@ export default class extends Component {
           showFooter={true}
           title={"Home"}
         >
-          <h2></h2>
+          <h1></h1>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum illo accusamus, similique sequi saepe cum quas labore, fugit repellat assumenda delectus in suscipit harum quisquam accusantium impedit ipsa ut. Dignissimos.</p>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum illo accusamus, similique sequi saepe cum quas labore, fugit repellat assumenda delectus in suscipit harum quisquam accusantium impedit ipsa ut. Dignissimos.</p>
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum illo accusamus, similique sequi saepe cum quas labore, fugit repellat assumenda delectus in suscipit harum quisquam accusantium impedit ipsa ut. Dignissimos.</p>
