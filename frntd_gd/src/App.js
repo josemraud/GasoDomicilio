@@ -4,7 +4,7 @@ import './App.css';
 import NRoute from './utilities/normalroutes';
 
 import Home from './components/Content/Home'
-import Conductor from './components/Content/Conductor'
+import Perfil from './components/Content/Perfil'
 
 export default class extends Component{
   render() {
@@ -18,7 +18,7 @@ export default class extends Component{
       <Router>
         <Switch>
           <Route path="/" component={Home} exact />
-          <NRoute path="/conductor" component={Conductor} exact /*auth={auth}*/ />
+          <NRoute path="/perfil" component={Perfil} exact /*auth={auth}*/ />
         </Switch>
       </Router>
     );

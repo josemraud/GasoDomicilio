@@ -24,7 +24,7 @@ export default function HideAppBar(props) {
         <HideOnScroll {...props}>
           <AppBar color="secondary">
             <Toolbar>
-              <Typography variant="h6">{props.title}</Typography>
+              <Typography variant="h5">{props.title}</Typography>
             </Toolbar>
           </AppBar>
         </HideOnScroll>

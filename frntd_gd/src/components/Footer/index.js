@@ -12,7 +12,7 @@ export default ()=>{
       <nav>
         <ul>
           <li><NavLink to="/" ><FiHome size="2em"/></NavLink></li>
-          <li><NavLink to="/conductor"><FiUser size="2em"/></NavLink></li>
+          <li><NavLink to="/perfil"><FiUser size="2em"/></NavLink></li>
           <li><NavLink to="/"><RiGasStationLine size="2em"/></NavLink></li>
         </ul>
       </nav>

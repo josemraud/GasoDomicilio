@@ -22,18 +22,16 @@ passport.use(
 
 var secRoutes = require('./sec');
 var pedidosRoutes = require('./pedido');
-var infoRoutes = require('./info_orden');
 var {priv, pub} = require('./conductor')
 
 //publicas no requieres estar autenticados para ser consumidos
 router.use("/sec", secRoutes);
-router.use("/pedido", pedidosRoutes );
-router.use("/conductor", pub)
-router.use("/info_orden", infoRoutes)
+//router.use("/conductor", pub)
 
 const jwtAuthMiddleware = passport.authenticate('jwt', {session:false});
 
 //Privadas
 router.use("/conductor", jwtAuthMiddleware ,priv)
+router.use("/pedido",jwtAuthMiddleware, pedidosRoutes );
 
 module.exports = router;
