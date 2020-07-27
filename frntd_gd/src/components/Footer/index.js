@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { MdHome } from 'react-icons/md';
-import { FaUserPlus, FaAngellist } from 'react-icons/fa';
+import { FiHome, FiUser } from 'react-icons/fi';
+import { RiGasStationLine} from 'react-icons/ri';
 
 import './footer.css';
 
@@ -11,9 +11,9 @@ export default ()=>{
     <footer>
       <nav>
         <ul>
-          <li><NavLink to="/" ><MdHome size="2em"/></NavLink></li>
-          <li><NavLink to="/"><FaUserPlus size="2em"/></NavLink></li>
-          <li><NavLink to="/"><FaAngellist size="2em"/></NavLink></li>
+          <li><NavLink to="/" ><FiHome size="2em"/></NavLink></li>
+          <li><NavLink to="/"><FiUser size="2em"/></NavLink></li>
+          <li><NavLink to="/"><RiGasStationLine size="2em"/></NavLink></li>
         </ul>
       </nav>
     </footer>
