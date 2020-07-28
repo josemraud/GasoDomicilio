@@ -23,7 +23,7 @@ export default function DateAndTimePickers() {
         <TextField
           id="datetime-local"
           type="datetime-local"
-          defaultValue="2017-05-24T10:30"
+          defaultValue="2020-07-28T10:30"
           className={classes.textField}
           InputLabelProps={{
             shrink: true,

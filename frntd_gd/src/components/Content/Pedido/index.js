@@ -3,8 +3,9 @@ import Picker from '../../DPicker';
 import Text from '../../Text';
 import Page from '../../Page';
 import {NavLinkBtn} from '../../Button';
+import {Button} from '@material-ui/core'
 
-import './pedido.css'
+//import './pedido.css'
 
 export default class extends Component{
 
@@ -22,7 +23,7 @@ export default class extends Component{
           showFooter={true}
         >
           <div className="classPedido">
-             <h2>Elija su Pedido</h2>
+             <h2>Realize su Pedido</h2>
              <label>Gasolineras Disponibles: </label>
              <select>
                <option>Seleccione una opcion</option>
@@ -50,7 +51,18 @@ export default class extends Component{
              <label>Ingrese la cantidad de Litros: </label>
              <Text/>
              <br/>
-             <NavLinkBtn toLink="/" className="btnBack">Siguiente</NavLinkBtn>
+             <div>
+             <NavLinkBtn toLink="/" className="btnBack">
+               <Button
+                fullWidth
+                variant="contained"
+                color="secondary"
+              >
+                Siguiente
+              </Button>
+             </NavLinkBtn>
+             </div>
+             
           </div>
         </Page>
         )

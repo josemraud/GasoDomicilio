@@ -1,8 +1,6 @@
 import React from 'react';
 import Header from '../Header';
 import Footer from '../Footer';
-import {Grid} from '@material-ui/core'
-
 import './page.css';
 
 

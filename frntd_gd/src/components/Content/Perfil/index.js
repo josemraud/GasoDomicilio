@@ -22,7 +22,7 @@ export default class extends Component {
           showHeader={true}
           showFooter={true}
         >
-          <div>
+          <div className="contenedor">
                 <div className="imagen">
                   <GrUserManager size="10em" />
                 </div>
