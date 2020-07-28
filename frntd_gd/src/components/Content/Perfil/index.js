@@ -18,7 +18,7 @@ export default class extends Component {
       return (
         
         <Page
-          title="Logo"
+          title="Perfil"
           showHeader={true}
           showFooter={true}
         >
