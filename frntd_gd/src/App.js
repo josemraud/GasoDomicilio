@@ -5,6 +5,7 @@ import NRoute from './utilities/normalroutes';
 
 import Home from './components/Content/Home'
 import Perfil from './components/Content/Perfil'
+import Pedido from './components/Content/Pedido'
 
 export default class extends Component{
   render() {
@@ -19,6 +20,7 @@ export default class extends Component{
         <Switch>
           <Route path="/" component={Home} exact />
           <NRoute path="/perfil" component={Perfil} exact /*auth={auth}*/ />
+          <NRoute path="/pedido" component={Pedido} exact/>
         </Switch>
       </Router>
     );
