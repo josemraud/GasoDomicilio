@@ -1,23 +1,28 @@
 import React,{Component} from 'react';
 import Page from '../../Page';
 import { Grid, Button } from '@material-ui/core';
+import {makeStyles} from '@material-ui/core/styles'
 import {GrUserManager} from 'react-icons/gr'
-import './conductor.css'
+
+//import './conductor.css'
+
 
 export default class extends Component {
+    
     constructor(){
       super();
+
     }
     render(){
-    
+      
       return (
-
+        
         <Page
           title="Logo"
           showHeader={true}
           showFooter={true}
         >
-          <div className="contenedor">
+          <div>
                 <div className="imagen">
                   <GrUserManager size="10em" />
                 </div>
