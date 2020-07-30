@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {Component} from 'react'
+import {Redirect} from 'react-router-dom';
 import Page from '../../Page'
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -8,33 +9,21 @@ import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import {FaRegUserCircle} from 'react-icons/fa';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
+import './login.css'
   
-  const useStyles = makeStyles((theme) => ({
-    paper: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-    },
-    avatar: {
-      margin: theme.spacing(1),
-      backgroundColor: theme.palette.secondary.main,
-    },
-    form: {
-      width: '100%', // Fix IE 11 issue.
-      marginTop: theme.spacing(1),
-    },
-    submit: {
-      margin: theme.spacing(3, 0, 2),
-    },
-  }));
   
-  export default function Login() {
-    const classes = useStyles();
-  
-    return (
+
+  export default class extends Component {
+    constructor(){
+      super()
+    }
+
+    render(){
+      
+      return (
+      
         <Page
           showHeader={true}
           showFooter={true}
@@ -42,14 +31,14 @@ import Container from '@material-ui/core/Container';
         >
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
-                <div className={classes.paper}>
-                    <Avatar className={classes.avatar}>
+                <div className="paper">
+                    <Avatar className="avatar">
                         <FaRegUserCircle />
                     </Avatar>
                     <Typography component="h1" variant="h5">
                         Login
                     </Typography>
-                        <form className={classes.form} noValidate>
+                        <form className="form">
                             <TextField
                             variant="outlined"
                             margin="normal"
@@ -77,7 +66,7 @@ import Container from '@material-ui/core/Container';
                             fullWidth
                             variant="contained"
                             color="secondary"
-                            className={classes.submit}
+                            className="submit"
                             >
                             Iniciar Sesion
                             </Button>
@@ -98,4 +87,6 @@ import Container from '@material-ui/core/Container';
             </Container>
       </Page>
     );
+    }
+    
   }
