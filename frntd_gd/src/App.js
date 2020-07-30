@@ -9,7 +9,7 @@ import Login from './components/Content/Login'
 import Registrarse from './components/Content/SignUp'
 import Pedido from './components/Content/Pedido'
 import Recuperacion from './components/Content/Recuperacion'
-
+import Checkout from './components/Content/Checkout'
 export default class extends Component{
   render() {
     /*const auth = {
@@ -27,6 +27,7 @@ export default class extends Component{
           <NRoute path="/signup" component={Registrarse} exact /*auth={auth}*/ />
           <NRoute path="/recuperacion" component={Recuperacion} exact /*auth={auth}*/ />
           <NRoute path="/pedido" component={Pedido} exact /*auth={auth}*/ />
+          <NRoute path="/checkout" component={Checkout} exact/>
         </Switch>
       </Router>
     );

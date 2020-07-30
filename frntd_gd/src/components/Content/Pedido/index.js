@@ -52,7 +52,7 @@ export default class extends Component{
              <Text/>
              <br/>
              <div>
-             <NavLinkBtn toLink="/" className="btnBack">
+             <NavLinkBtn toLink="/checkout" className="btnBack">
                <Button
                 fullWidth
                 variant="contained"

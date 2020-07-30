@@ -13,7 +13,7 @@ export default ()=>{
         <ul>
           <li><NavLink to="/recuperacion" ><FiHome size="2em"/></NavLink></li>
           <li><NavLink to="/login"><FiUser size="2em"/></NavLink></li>
-          <li><NavLink to="/signup"><RiGasStationLine size="2em"/></NavLink></li>
+          <li><NavLink to="/pedido"><RiGasStationLine size="2em"/></NavLink></li>
         </ul>
       </nav>
     </footer>
