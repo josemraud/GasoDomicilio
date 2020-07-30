@@ -23,7 +23,7 @@ export default class extends Component{
           showFooter={true}
         >
           <div className="classPedido">
-             <h2>Realize su Pedido</h2>
+             <h2>Realice su Pedido</h2>
              <label>Gasolineras Disponibles: </label>
              <select>
                <option>Seleccione una opcion</option>
