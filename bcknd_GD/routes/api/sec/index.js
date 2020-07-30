@@ -15,9 +15,8 @@ router.post('/ingresar',async(req,res)=>{
         
         var user = await secModel.getByEmail(correo);
         if (await secModel.comparePassword(password, user.password)) {
-           const { correo, roles, _id } = user;
-           const jUser = { correo, roles, _id };
-           console.log(jUser);
+           const { nombre, apellido, email, telefono, password, _id } = user;
+           const jUser = { nombre, apellido, email, telefono, password, _id };
            let token = jwt.sign(jUser, process.env.JWT_SECRET, {expiresIn: '120m'});
            res.status(200).json(
              {
