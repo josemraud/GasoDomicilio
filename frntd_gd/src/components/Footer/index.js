@@ -11,8 +11,8 @@ export default ()=>{
     <footer>
       <nav>
         <ul>
-          <li><NavLink to="/recuperacion" ><FiHome size="2em"/></NavLink></li>
-          <li><NavLink to="/login"><FiUser size="2em"/></NavLink></li>
+          <li><NavLink to="/" ><FiHome size="2em"/></NavLink></li>
+          <li><NavLink to="/perfil"><FiUser size="2em"/></NavLink></li>
           <li><NavLink to="/pedido"><RiGasStationLine size="2em"/></NavLink></li>
         </ul>
       </nav>

@@ -28,7 +28,7 @@ export default function HideAppBar(props) {
           <AppBar color="secondary">
             <Toolbar>
               <Typography variant="h5">{props.title}</Typography>
-              <img src="TanqueLleno1.svg"/>
+              
             </Toolbar>
           </AppBar>
         </HideOnScroll>

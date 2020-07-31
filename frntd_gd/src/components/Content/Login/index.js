@@ -1,5 +1,7 @@
 import React, {Component} from 'react'
 import {Redirect} from 'react-router-dom';
+import {login} from './actions'
+
 import Page from '../../Page'
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -18,9 +20,39 @@ import './login.css'
   export default class extends Component {
     constructor(){
       super()
+      this.state = {
+        email:'',
+        password:'',
+        redirectTo: false
+      }
+
+      this.onClickButton = this.onClickButton.bind(this);
+      this.onTextChange = this.onTextChange.bind(this);
+    }
+
+    onTextChange(e){
+      const {name, value} = e.target;
+      this.setState({[name]:value});
+    }
+
+    async onClickButton(e) {
+      try{
+        let userData = await login(this.state.email, this.state.password);
+        const {jwt} = userData;
+        delete userData.jwt;
+        this.setState({ "redirectTo": true }, () => { this.props.auth.login(userData, jwt);});
+      }catch(e){
+        alert("Error al iniciar sesión.");
+      }
     }
 
     render(){
+      if(this.state.redirectTo){
+        const tourl = (this.props.location.state) ? this.props.location.state.from.pathname: '/';
+        return(
+          <Redirect to={tourl}/>
+        )
+      }
       
       return (
       
@@ -47,8 +79,9 @@ import './login.css'
                             id="email"
                             label="Correo"
                             name="email"
-                            autoComplete="email"
-                            autoFocus
+                            type="email"
+                            onChange={this.onTextChange}
+                            value={this.state.email}
                             />
                             <TextField
                             variant="outlined"
@@ -59,7 +92,8 @@ import './login.css'
                             label="Contaseña"
                             type="password"
                             id="password"
-                            autoComplete="current-password"
+                            onChange={this.onTextChange}
+                            value={this.state.password}
                             />
                             <Button
                             type="submit"
@@ -67,12 +101,13 @@ import './login.css'
                             variant="contained"
                             color="secondary"
                             className="submit"
+                            onChange={this.onClickButton}
                             >
                             Iniciar Sesion
                             </Button>
                             <Grid container>
                                 <Grid item xs>
-                                    <Link href="#" variant="body2">
+                                    <Link href="/recuperacion" variant="body2">
                                     ¿Olvidaste tu contrasena?
                                     </Link>
                                 </Grid>
