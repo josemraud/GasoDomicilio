@@ -91,7 +91,7 @@ export default class extends Component{
           <NRoute path="/recuperacion" component={Recuperacion} exact auth={auth} />
           <PRoute path="/perfil" component={Perfil} exact auth={auth} />
           <PRoute path="/pedido" component={Pedido} exact auth={auth} />
-          <PRoute path="/checkout" component={Checkout} exact/>
+          <PRoute path="/checkout" component={Checkout} exact auth={auth}/>
         </Switch>
       </Router>
     );

@@ -25,7 +25,7 @@ export default class extends Component {
       try {
         let datosPerfil = await obtenerPerfil();
         this.setState({...this.state, datosPerfil: datosPerfil});
-        console.log(this.state.datosPerfil);
+        //console.log(this.state.datosPerfil);
         //console.log(datosPerfil);
       }catch(e){
         console.log(e);
@@ -33,8 +33,7 @@ export default class extends Component {
     }
 
     render(){
-      this.setState.nombre = this.state.datosPerfil[4]
-      console.log(this.state.nombre);
+      
       return (
         
         <Page
