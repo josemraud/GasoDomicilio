@@ -28,7 +28,7 @@ export default class extends Component {
          
           
          
-          <img src="components/Header/tl.png"/>
+          
           </article>
           
           

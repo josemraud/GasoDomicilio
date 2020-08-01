@@ -21,6 +21,14 @@ input[type=text]{
  background-color:white;
 }
 
+input[type=email]{
+  background-color:white;
+ }
+
+ input[type=datetime-local]{
+  background-color:white;
+ }
+
 input[type=password]{
   background-color:white;
  }
