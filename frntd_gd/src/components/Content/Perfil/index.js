@@ -14,18 +14,16 @@ export default class extends Component {
       super();
       this.state = {
         datosPerfil: [],
-        nombre:'',
-        apellido:'',
-        correo:'',
-        telefono:'',
+        isLoaded: false, 
+        
       }
     }
 
     async componentDidMount(){
       try {
         let datosPerfil = await obtenerPerfil();
-        this.setState({...this.state, datosPerfil: datosPerfil});
-        //console.log(this.state.datosPerfil);
+        this.setState({datosPerfil: datosPerfil});
+        console.log(this.state.datosPerfil);
         //console.log(datosPerfil);
       }catch(e){
         console.log(e);
@@ -33,7 +31,22 @@ export default class extends Component {
     }
 
     render(){
-      
+      var {datosPerfil, isLoaded} = this.state
+      var usuario = datosPerfil.map(item => {
+        return (
+          <div key={item._id} className="datosUsuario">
+            <label>Nombre: {item.nombre} </label>
+            <br/>
+            <label>Apellido: {item.apellido} </label>
+            <br/>
+            <label>Correo: {item.email} </label>
+            <br/>
+            <label>Telefono: {item.telefono} </label>
+            <br/>
+          </div>
+        )
+      })
+     
       return (
         
         <Page
@@ -48,22 +61,19 @@ export default class extends Component {
                 <section>
                   <fieldset>
                     <h4>Datos de usuario</h4>
-                    <label>Nombre: {this.state.nombre} </label>
-                    <br/>
-                    <label>Apellido:</label>
-                    <br/>
-                    <label>Correo:</label>
-                    <br/>
-                    <label>Telefono:</label>
-                    <br/>
-                    <h4>Cambiar contrasena:</h4>
+                    <section>
+                      {usuario}
+                    </section>
+
+                    <hr></hr>
+                    <h4>Cambiar contrasena</h4>
+                    
                     <label>Contrasena actual:</label>
                     <input type="password"></input>
+                    <br/>
                     <label>Contrasena nueva:</label>
                     <input type="password"></input>
-                    <Button variant="contained" color="primary">
-                      Cambiar
-                    </Button>
+                    <button className="btn">Cambiar</button>
                   </fieldset>
                 </section>
           </div>

@@ -21,7 +21,8 @@ router.get('/' , function(req, res){
 
 privateRouter.get('/private', (req, res)=>{
   if (req.user.roles.includes('public') && true) {
-    res.status(200).json({ "msg": req.user });
+    const datos = [req.user]
+    res.status(200).json(datos);
   } else {
     res.status(401).json({ "msg": "No esta autorizado a usar esta ruta" });
   }
