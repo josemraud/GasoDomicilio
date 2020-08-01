@@ -11,21 +11,15 @@ export default class extends Component {
           showFooter={true}
           title={"Home"}
         >
-          <h1></h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum illo accusamus, similique sequi saepe cum quas labore, fugit repellat assumenda delectus in suscipit harum quisquam accusantium impedit ipsa ut. Dignissimos.</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum illo accusamus, similique sequi saepe cum quas labore, fugit repellat assumenda delectus in suscipit harum quisquam accusantium impedit ipsa ut. Dignissimos.</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum illo accusamus, similique sequi saepe cum quas labore, fugit repellat assumenda delectus in suscipit harum quisquam accusantium impedit ipsa ut. Dignissimos.</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum illo accusamus, similique sequi saepe cum quas labore, fugit repellat assumenda delectus in suscipit harum quisquam accusantium impedit ipsa ut. Dignissimos.</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum illo accusamus, similique sequi saepe cum quas labore, fugit repellat assumenda delectus in suscipit harum quisquam accusantium impedit ipsa ut. Dignissimos.</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum illo accusamus, similique sequi saepe cum quas labore, fugit repellat assumenda delectus in suscipit harum quisquam accusantium impedit ipsa ut. Dignissimos.</p>
+            <article id="home">
+          <h1>Acerca de nosotros</h1>
+          <p>Tanque lleno , creada por un grupo de estudiantes de la carrera de Ingeniería en Ciencias de la Computación,de la Universidad Católica De Honduras, con el fin de cubrir una de las necesidades que puede presentar la 
+            sociedad y mas en la situacion por la cual atraviesa el país. Tanque lleno te permite tener combustible para tu vehículos ,tus generadores o tu maquinaria donde y cuando tu lo quieras. con este proyecto se ayuda tanto 
+            a un cliente particular como a empresarios de entregas a domicilio,transporte y tambien a la agroindustria.
+          </p>
+          <img src="components/Header/tl.png"/>
+          </article>
           
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum illo accusamus, similique sequi saepe cum quas labore, fugit repellat assumenda delectus in suscipit harum quisquam accusantium impedit ipsa ut. Dignissimos.</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum illo accusamus, similique sequi saepe cum quas labore, fugit repellat assumenda delectus in suscipit harum quisquam accusantium impedit ipsa ut. Dignissimos.</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum illo accusamus, similique sequi saepe cum quas labore, fugit repellat assumenda delectus in suscipit harum quisquam accusantium impedit ipsa ut. Dignissimos.</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum illo accusamus, similique sequi saepe cum quas labore, fugit repellat assumenda delectus in suscipit harum quisquam accusantium impedit ipsa ut. Dignissimos.</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum illo accusamus, similique sequi saepe cum quas labore, fugit repellat assumenda delectus in suscipit harum quisquam accusantium impedit ipsa ut. Dignissimos.</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum illo accusamus, similique sequi saepe cum quas labore, fugit repellat assumenda delectus in suscipit harum quisquam accusantium impedit ipsa ut. Dignissimos.</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum illo accusamus, similique sequi saepe cum quas labore, fugit repellat assumenda delectus in suscipit harum quisquam accusantium impedit ipsa ut. Dignissimos.</p>
           
         </Page>
       )
