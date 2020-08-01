@@ -1,7 +1,32 @@
 main{
-  margin-top:15px;
-  margin-bottom: 72px;
-  padding:0.5em 1em;
+  
+  padding:15% 10% 15% 10%;
   background-color: #303030;
   color: white;
+  margin-bottom: 1.5em;
+  margin-top: 0em;
+  font-family: 'Varta', sans-serif;
+  
+}
+
+form{
+  background-color:#303030;
+  color: white;
+  
+  
+  
+  
+}
+input[type=text]{
+ background-color:white;
+}
+
+input[type=password]{
+  background-color:white;
+ }
+article p{
+   
+  color:white;
+  text-align: justify;
+  font-style: initial;
 }

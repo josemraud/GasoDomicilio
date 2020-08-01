@@ -128,10 +128,7 @@ export default function Registrarse() {
                     </Grid>
 
                 </form>
-                <Grid container spacing={2}/>
-                <Grid container spacing={2}/>
-                <Grid container spacing={2}/>
-                <Grid container spacing={2}/>
+             
         </div>
         </Container>
     </Page>
