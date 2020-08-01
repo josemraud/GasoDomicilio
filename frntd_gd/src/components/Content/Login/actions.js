@@ -6,8 +6,8 @@ export const login = async (email, password)=>{
     const {data} = await paxios.post(
       "/api/sec/ingresar",
       {
-        email: email,
-        pswd: password
+        correo: email,
+        password: password
       }
     );
     return data;

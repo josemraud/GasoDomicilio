@@ -71,40 +71,15 @@ import './login.css'
                         Login
                     </Typography>
                         <form className="form">
-                            <TextField
-                            variant="outlined"
-                            margin="normal"
-                            required
-                            fullWidth
-                            id="email"
-                            label="Correo"
-                            name="email"
-                            type="email"
-                            onChange={this.onTextChange}
-                            value={this.state.email}
-                            />
-                            <TextField
-                            variant="outlined"
-                            margin="normal"
-                            required
-                            fullWidth
-                            name="password"
-                            label="Contaseña"
-                            type="password"
-                            id="password"
-                            onChange={this.onTextChange}
-                            value={this.state.password}
-                            />
-                            <Button
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            color="secondary"
-                            className="submit"
-                            onChange={this.onClickButton}
-                            >
-                            Iniciar Sesion
-                            </Button>
+                        <fieldset>
+                        <label>Correo Electrónico</label>
+                        <input type="email" name="email" onChange={this.onTextChange} value={this.state.email} />
+                        </fieldset>
+                        <fieldset>
+                          <label>Password</label>
+                          <input type="password" name="password" onChange={this.onTextChange} value={this.state.password} />
+                        </fieldset>
+                        <button className="btn" onClick={this.onClickButton}>Iniciar Sesión</button>
                             <Grid container>
                                 <Grid item xs>
                                     <Link href="/recuperacion" variant="body2">
