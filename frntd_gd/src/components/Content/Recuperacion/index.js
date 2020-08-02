@@ -1,8 +1,7 @@
 import React,{Component} from 'react';
 import Page from '../../Page';
-import Text from '../../Text';
 import {Button} from '@material-ui/core'
-
+import TextField from '@material-ui/core/TextField';
 export default class extends Component {
     constructor(){
         super();
@@ -26,10 +25,10 @@ export default class extends Component {
                         <h5>Escriba su correo para ingresar contraseña nueva...</h5>
                         <br/>
                         <label>Correo:</label>
-                        <Text/>
+                       
                         <br/>
                         <label>Contraseña nueva:</label>
-                        <Text/>
+                     
                         <Button
                         fullWidth
                         variant="contained"

@@ -1,5 +1,4 @@
 import React , {Component} from 'react';
-//import Text from '../../Text';
 import Page from '../../Page';
 import {NavLinkBtn} from '../../Button';
 import {Button} from '@material-ui/core'
@@ -11,8 +10,6 @@ import { pedido } from './actions';
 
 
 
-
-//import './pedido.css'
 
 export default class extends Component{
 
@@ -68,6 +65,7 @@ export default class extends Component{
 async onClickButton(e) {
   try {
     let pedidoData = await pedido(this.state.gasolinera,this.state.tipocombustible,this.state.fecha,this.state.cantLitros,this.state.estado);
+    alert("pedido ingresado")
   } catch (error) {
     alert("error al ingresar el pedido")
      throw(error)
@@ -88,7 +86,7 @@ async onClickButton(e) {
           title="Logo"
           showHeader={true}
           showFooter={true}
-          //auth={this.props.auth}
+          auth={this.props.auth}
         >
           <div className="classPedido">
             
