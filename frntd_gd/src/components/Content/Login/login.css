@@ -5,7 +5,9 @@
     align-items: center;
     margin-top: 100px;
 }
-
+.fieldset{
+    background-color: red;
+}
 .avatar {
     margin: 10px;
     background-color: navy;
@@ -22,6 +24,7 @@ form {
 .submit {
     margin: 3px 0 2px;
     margin-bottom: 10px;
+    
 }
 
 .btn {
@@ -37,6 +40,6 @@ form {
     box-shadow: 1px 1px 5px #000;
     border-radius: 0.5em;
     text-align: center;
-    max-width: 50%;
+    max-width: 70%;
    
   }

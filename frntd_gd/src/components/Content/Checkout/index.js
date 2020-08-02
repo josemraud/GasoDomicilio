@@ -85,7 +85,7 @@ export default function Checkout(){
       <br/>
            </div> 
            <br/>
-           <Button
+           <Button class="btn"
                 fullWidth
                 variant="contained"
                 color="secondary"

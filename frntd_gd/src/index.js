@@ -16,7 +16,10 @@ const theme = createMuiTheme({
       main: "#000000"
     },
     third: {
-      main: "#ffffff"
+      main: "#00BCD4"
+    },
+    pedido: {
+      main: "#00BCD4"
     },
   },
   typography: {

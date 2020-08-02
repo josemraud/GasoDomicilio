@@ -5,7 +5,7 @@ import Page from '../../Page';
 import {NavLinkBtn} from '../../Button';
 import {Button} from '@material-ui/core'
 
-//import './pedido.css'
+import './pedido.css'
 
 export default class extends Component{
 
