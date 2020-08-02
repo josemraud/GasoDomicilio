@@ -59,18 +59,18 @@ module.exports = class {
     }//Mostrar ordenes no entregadas
 
 
-    static async addOrden (gasolinera, fecha, tipocombustible, cantLitros, latitud, longitud, radioKM, tipoPago, estado){
+    static async addOrden (gasolinera, fecha, tipocombustible, cantLitros, tipoPago, estado){
         try{
             let orden = {
               gasolinera, 
               fecha, 
               tipocombustible, 
               cantLitros, 
-              ubicacion: {
+              /*ubicacion: {
                 type:"Point",
                 coordinates: [longitud, latitud ]
               },
-              radioKM, 
+              radioKM,*/ 
               tipoPago,
               estado: estado
             };
