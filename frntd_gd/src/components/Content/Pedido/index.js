@@ -69,6 +69,7 @@ async onClickButton(e) {
   try {
     let pedidoData = await pedido(this.state.gasolinera,this.state.tipocombustible,this.state.fecha,this.state.cantLitros,this.state.estado);
   } catch (error) {
+    alert("error al ingresar el pedido")
      throw(error)
   }
     
