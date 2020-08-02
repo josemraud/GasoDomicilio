@@ -25,12 +25,12 @@ module.exports = class {
 
 
     static async crearCuenta(data){
-        const {nombre, apellido, correo, telefono, password} = data;
+        const {nombre, apellido, email, telefono, password} = data;
         try {
             let newUser = {
                 "nombre": nombre,
                 "apellido": apellido,
-                "email": correo,
+                "email": email,
                 "telefono": telefono,
                 "password" : bcrypt.hashSync(password, 10),
                 "lastlogin" : null,

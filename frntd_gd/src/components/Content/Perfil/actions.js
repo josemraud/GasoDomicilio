@@ -1,4 +1,5 @@
-import {paxios} from '../../../utilities/axios';
+import {paxios, naxios} from '../../../utilities/axios';
+
 
 export const obtenerPerfil = async()=>{
     try{
@@ -8,4 +9,19 @@ export const obtenerPerfil = async()=>{
     }catch(e){
       throw(e);
     }
+}
+
+export const cambiarPassword = async(idusuario,oldPassword, newPassword)=>{
+  try{
+    let { data } = await naxios.put(
+      `/api/sec/cambiarPassword/${idusuario}`,
+      {
+        oldPassword: oldPassword,
+        newPassword: newPassword
+      }
+    );
+    return data;
+  }catch (e){
+    throw(e);
   }
+}
