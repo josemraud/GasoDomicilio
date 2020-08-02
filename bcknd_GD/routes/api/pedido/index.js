@@ -44,16 +44,16 @@ router.get('/info/noEntregado/:estado', async (req, res)=>{
 
 router.post('/addorden',async(req,res)=>{
     try{
-        var {gasolinera, fecha, tipocombustible, cantLitros,tipoPago} = req.body;
+        var {gasolinera, tipocombustible, fecha , cantLitros} = req.body;
         var estado = "no entregado"
         /*latitud = parseFloat(latitud)
         longitud = parseFloat(longitud)
         radioKM = parseFloat(radioKM)*/
-        var resultado = await model.addOrden(gasolinera, fecha, tipocombustible, cantLitros, tipoPago, estado);
+        var resultado = await model.addOrden(gasolinera, tipocombustible, fecha , cantLitros,estado);
         res.status(200).json(resultado)
     } catch (error){
         console.log(error)
-        res.status(500).json({"Error":"Algo salio mas al agregar su orden"})
+        res.status(500).json({"Error":"Algo salio mal al agregar su orden"})
     }
 }); //Agregar una orden nueva
 

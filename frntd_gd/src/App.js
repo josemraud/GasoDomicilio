@@ -24,6 +24,7 @@ export default class extends Component{
       isLogged:false,
       loadingBackend:false
     }
+    
     if(this.state.jwt !== ""){
       setJWT(this.state.jwt);
       this.state.isLogged = true;
@@ -36,9 +37,9 @@ export default class extends Component{
 
   componentDidMount(){
     this.setState({"loadingBackend":true});
-    //console.log(this.state.loadingBackend);
+    console.log(this.state.loadingBackend);
   }
-  setLogginData(user, jwt){
+ setLogginData(user, jwt){
     this.setState({
       ...this.state,
       user:user,
@@ -51,6 +52,7 @@ export default class extends Component{
         setJWT(jwt);}
     );
   }
+  
   setLoggoutData(){
     if(this.state.loadingBackend){
       this.setState(
@@ -74,7 +76,7 @@ export default class extends Component{
   }
 
   render() {
-    if (!this.state.loadingBackend){
+  if (!this.state.loadingBackend){
       return (<div className="splash"> ...Loading </div>)
     }
     const auth = {
@@ -89,9 +91,9 @@ export default class extends Component{
           <NRoute path="/login" component={Login} exact auth={auth} />
           <NRoute path="/signup" component={Registrarse} exact auth={auth} />
           <NRoute path="/recuperacion" component={Recuperacion} exact auth={auth} />
-          <PRoute path="/perfil" component={Perfil} exact auth={auth} />
-          <PRoute path="/pedido" component={Pedido} exact auth={auth} />
-          <PRoute path="/checkout" component={Checkout} exact auth={auth}/>
+          <NRoute path="/perfil" component={Perfil} exact auth={auth} />
+          <NRoute path="/pedido" component={Pedido} exact auth={auth} />
+          <NRoute path="/checkout" component={Checkout} exact auth={auth}/>
         </Switch>
       </Router>
     );

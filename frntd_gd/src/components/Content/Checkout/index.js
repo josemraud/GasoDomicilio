@@ -45,10 +45,13 @@ export default function Checkout(){
              showHeader={true}
              showFooter={true}
            >
-               <h2>Seleccione un tipo de pago</h2>
+               <h2>Orden</h2>
            <div className="classRadio">
          
-          
+           <TextField id="outlined-basic" label="Total Orden" variant="outlined"   />
+           <br/>
+           <br/>
+           <h3>Seleccione un metodo de pago</h3>
            <label>Tarjeta</label>
       <GreenRadio
         checked={selectedValue === 'a'}
@@ -59,17 +62,19 @@ export default function Checkout(){
       />
        <br/>
        <form className={classes.root} noValidate autoComplete="off">
-      <TextField id="outlined-basic" label="Numero de Tarjeta" variant="outlined"   disabled = {true} />
+      <TextField id="outlined-basic" label="Numero de Tarjeta" variant="outlined"   />
       <br/>
-      <TextField id="outlined-basic" label="Pin" variant="outlined"   disabled = {true} />
+      <TextField id="outlined-basic" label="Pin" variant="outlined"    />
       <br/>
-      <TextField id="outlined-basic" label="Fecha Exp" variant="outlined"   disabled = {true} />
+      <TextField id="outlined-basic" label="Fecha Exp" variant="outlined"   />
       
       <br/>
+  
       <br/>
       </form>
       <br/>
       <label>Efectivo</label>
+      
 <GreenRadio
 
      
@@ -79,7 +84,7 @@ export default function Checkout(){
         name="radio-button-demo"
         inputProps={{ 'aria-label': 'B' }}
       />
-    
+    <TextField id="outlined-basic" label="Cantidad a pagar en billete" variant="outlined"   />
           
               <br/>
       <br/>
