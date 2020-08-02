@@ -1,19 +1,51 @@
 import React,{Component} from 'react';
+import {Redirect} from 'react-router-dom';
+import {recuperacion} from './actions'
 import Page from '../../Page';
-import Text from '../../Text';
-import {Button} from '@material-ui/core'
+import {Button,TextField} from '@material-ui/core'
 
 export default class extends Component {
     constructor(){
-        super();
+        super()
+        this.state = {
+          email:'',
+          newPassword:'',
+          redirectTo:false
+        }
   
+        this.onClickButton = this.onClickButton.bind(this);
+        this.onTextChange = this.onTextChange.bind(this);
+    }
+  
+    onTextChange(e){
+        const {name, value} = e.target;
+        this.setState({[name]:value});
+    }
+  
+    async onClickButton(e) {
+        try{
+          let userData = await recuperacion(this.state.email, this.state.newPassword)
+          console.log(userData);
+          alert("Recuperacion exitosa! Ya puedes iniciar sesion con tu nueva contraseña");
+          this.setState({ "redirectTo": true });
+        }catch(e){
+          alert("Error al intentar recuperar tu cuenta.");
+        }
     }
 
 
+
+
     render(){
+        if(this.state.redirectTo){
+            const tourl = '/login';
+            return(
+              <Redirect to={tourl}/>
+            )
+          }
         return (
             <Page
-            title="Recuperar Contraseña"
+            title="Recuperar de Cuenta"
             showHeader={true}
             showFooter={true}
             >
@@ -24,19 +56,41 @@ export default class extends Component {
                     </div>
                     <section>
                         <h5>Escriba su correo para ingresar contraseña nueva...</h5>
-                        <br/>
-                        <label>Correo:</label>
-                        <Text/>
-                        <br/>
-                        <label>Contraseña nueva:</label>
-                        <Text/>
-                        <Button
-                        fullWidth
-                        variant="contained"
-                        color="secondary"
-                        >
-                            Cambiar
-                        </Button>
+                            <br/>
+                            <TextField
+                                variant="filled"
+                                margin="normal"
+                                required
+                                fullWidth
+                                id="email"
+                                label="Email"
+                                name="email"
+                                type="email"
+                                autoComplete="email"
+                                onChange={this.onTextChange}
+                                value={this.state.email}      
+                            />
+                            <br/>
+                            <TextField
+                                variant="filled"
+                                margin="normal"
+                                required
+                                fullWidth
+                                name="newPassword"
+                                label="Contaseña Nueva"
+                                type="password"
+                                id="password"
+                                onChange={this.onTextChange}
+                                value={this.state.newPassword} 
+                            />
+                            <Button
+                            fullWidth
+                            variant="contained"
+                            color="secondary"
+                            onClick={this.onClickButton}
+                            >
+                                Recuperar
+                            </Button>
                     </section>
                 </div>
 
