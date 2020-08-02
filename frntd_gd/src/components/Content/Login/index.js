@@ -3,8 +3,10 @@ import {Redirect} from 'react-router-dom';
 import {login} from './actions'
 
 import Page from '../../Page'
-import Avatar from '@material-ui/core/Avatar';
 
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
@@ -70,26 +72,55 @@ import './login.css'
                         Login
                     </Typography>
                         <form className="form">
-                        <fieldset>
-                        <label>Correo Electrónico</label>
-                        <input type="email" name="email" onChange={this.onTextChange} value={this.state.email} />
-                        </fieldset>
-                        <fieldset>
-                          <label>Password</label>
-                          <input type="password" name="password" onChange={this.onTextChange} value={this.state.password} />
-                        </fieldset>
-                        <button className="btn" onClick={this.onClickButton}>Iniciar Sesión</button>
-                            <Grid container>
-                                <Grid item xs>
-                                    <Link href="/recuperacion" variant="body2">
-                                    ¿Olvidaste tu contrasena?
-                                    </Link>
-                                </Grid>
-                                <Grid item>
-                                    <Link href="/signup" variant="body2">
-                                    {"¿No tienes cuenta? Registrate!"}
-                                    </Link>
-                                </Grid>
+                          <Grid item xs={12}>
+                                  <TextField
+                                      variant="filled"
+                                      margin="normal"
+                                      required
+                                      fullWidth
+                                      id="email"
+                                      label="Email"
+                                      name="email"
+                                      type="email"
+                                      autoComplete="email"
+                                      onChange={this.onTextChange}
+                                      value={this.state.email}
+                                  />
+                              </Grid>
+                              <Grid item xs={12}>
+                                  <TextField
+                                      variant="filled"
+                                      margin="normal"
+                                      required
+                                      fullWidth
+                                      name="password"
+                                      label="Contaseña"
+                                      type="password"
+                                      id="password"
+                                      onChange={this.onTextChange}
+                                      value={this.state.password}
+                                  />
+                              </Grid>
+                              <Button
+                                  type="submit"
+                                  fullWidth
+                                  variant="contained"
+                                  color="secondary"
+                                  onClick={this.onClickButton}
+                              >
+                                  Iniciar Sesion
+                              </Button>
+                              <Grid container>
+                                  <Grid item xs>
+                                      <Link href="/recuperacion" variant="body2">
+                                      ¿Olvidaste tu contrasena?
+                                      </Link>
+                                  </Grid>
+                                  <Grid item>
+                                      <Link href="/signup" variant="body2">
+                                      {"¿No tienes cuenta? Registrate!"}
+                                      </Link>
+                                  </Grid>
                             </Grid>
                         </form>
                 </div>

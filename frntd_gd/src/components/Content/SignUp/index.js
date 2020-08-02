@@ -38,11 +38,6 @@ export default class extends Component {
     }
   
     async onClickButton(e) {
-        console.log(this.state.nombre);
-        console.log(this.state.apellido);
-        console.log(this.state.email);
-        console.log(this.state.telefono);
-        console.log(this.state.password);
         try{
             let userData = await crearcuenta(this.state.nombre,this.state.apellido,this.state.email, this.state.telefono, this.state.password);
             console.log(userData);
@@ -53,9 +48,6 @@ export default class extends Component {
         }
     }
 
-    componentDidMount(){
-        
-    }
  
   render(){
     if(this.state.redirectTo){
