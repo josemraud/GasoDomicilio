@@ -26,7 +26,6 @@ export default class extends Component{
        fecha : '',
        cantLitros : '',
        estado: 'estado',
-      loading: true
      }
      this.onClickButton = this.onClickButton.bind(this);
      this.onTextChange = this.onTextChange.bind(this);
@@ -45,18 +44,6 @@ export default class extends Component{
   },
 }));
 
- }
-
-estilosText(){
-  const useStyles = makeStyles((theme) => ({
-    root: {
-      '& > *': {
-        margin: theme.spacing(1),
-        width: '25ch',
-      },
-    },
-  }));
-  
  }
 
  estilosSelect()
@@ -78,14 +65,18 @@ estilosText(){
   this.setState({[name]:value});
 }
 
-
 async onClickButton(e) {
-//try{
+  try {
     let pedidoData = await pedido(this.state.gasolinera,this.state.tipocombustible,this.state.fecha,this.state.cantLitros,this.state.estado);
+  } catch (error) {
+     throw(error)
+  }
+    
+  
   //}catch(e){
-    alert("Hubo un problema al guardar su orden");
-  //}*/
-  alert(JSON.stringify(this.state))
+    //alert("Hubo un problema al guardar su orden");
+  //}
+
 }
 
   render()
@@ -110,7 +101,7 @@ async onClickButton(e) {
           className={this.estilosSelect}
           inputProps={{ 'aria-label': 'Without label' }}
         >
-          <MenuItem value="">
+          <MenuItem value="Seleccione una opcion">
             <em>Seleccione una opcion</em>
           </MenuItem>
           <MenuItem value={"PumaLasTorres"}>Puma Las Torres</MenuItem>
@@ -122,16 +113,16 @@ async onClickButton(e) {
              <label>Tipo Gasolina: </label>
           
              <Select
-          name = "tipocombustible"
+          name = {"tipocombustible"}
           onChange = {this.onTextChange}
           displayEmpty
           className={this.estilosSelect}
           inputProps={{ 'aria-label': 'Without label' }}
         >
-          <MenuItem value="">
+          <MenuItem value="Seleccione una opcion">
             <em>Seleccione una opcion</em>
           </MenuItem>
-          <MenuItem value={"PumaLasTorres"}>Regular</MenuItem>
+          <MenuItem value={"Regular"}>Regular</MenuItem>
           <MenuItem value={"Super"}>Super</MenuItem>
           <MenuItem value={"Diesel"}>Diesel</MenuItem>
           <MenuItem value={"Gas Vehicular"}>Gas Vehicular</MenuItem>
@@ -145,7 +136,7 @@ async onClickButton(e) {
                      id="datetime-local"
                      type="datetime-local"
                      defaultValue="2020-07-28T10:30"
-                     className={this.estilosTextfield}
+                     className = {this.estilosTextfield}
                      name = "fecha"
                      onChange = {this.onTextChange}
                      value = {this.state.fecha}
@@ -156,13 +147,13 @@ async onClickButton(e) {
              <label>Ingrese la cantidad de Litros: </label>
              <TextField id="standard-basic"
                 name = "cantLitros"
+                className = {this.estilosTextfield}
                 onChange = {this.onTextChange}
                 value = {this.state.cantLitros}
              />
              <br/>
              <br/>
              <div>
-             <NavLinkBtn  onClick={this.onClickButton}   toLink="/checkout" className="btnBack">
              <Button
                 fullWidth
                 variant="contained"
@@ -170,10 +161,12 @@ async onClickButton(e) {
                 onClick = {this.onClickButton}
               >
                 Siguiente
-              </Button> 
-              </NavLinkBtn>
- 
- 
+              </Button>
+              {this.state.gasolinera}
+              {this.state.tipocombustible}
+              {this.state.cantLitros}
+              {this.state.fecha}
+              {this.state.estado}
              </div>
           </div>
         </Page>
