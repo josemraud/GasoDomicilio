@@ -72,10 +72,6 @@ async onClickButton(e) {
   }
     
   
-  //}catch(e){
-    //alert("Hubo un problema al guardar su orden");
-  //}
-
 }
 
   render()
@@ -86,7 +82,7 @@ async onClickButton(e) {
           title="Logo"
           showHeader={true}
           showFooter={true}
-          auth={this.props.auth}
+          //auth={this.props.auth}
         >
           <div className="classPedido">
             
@@ -153,19 +149,18 @@ async onClickButton(e) {
              <br/>
              <br/>
              <div>
+
+             <NavLinkBtn  toLink="/checkout">
              <Button
                 fullWidth
                 variant="contained"
                 color="secondary"
-                onClick = {this.onClickButton}
+                onClick={this.onClickButton} 
               >
                 Siguiente
               </Button>
-              {this.state.gasolinera}
-              {this.state.tipocombustible}
-              {this.state.cantLitros}
-              {this.state.fecha}
-              {this.state.estado}
+              </NavLinkBtn>
+            
              </div>
           </div>
         </Page>

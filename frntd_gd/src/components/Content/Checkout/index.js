@@ -2,104 +2,101 @@ import React,{Component} from 'react';
 import Page from '../../Page';
 import {Button} from '@material-ui/core'
 import TextField from '@material-ui/core/TextField';
-import {makeStyles} from '@material-ui/core/styles';
-import { withStyles } from '@material-ui/core/styles';
-import { green } from '@material-ui/core/colors';
-import Radio from '@material-ui/core/Radio';
+import { makeStyles } from '@material-ui/core/styles';
 
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    '& > *': {
-      margin: theme.spacing(3),
-      width: '160px',
-      height: '15px'
-    },
-  },
-}));
 
-const GreenRadio = withStyles({
-  root: {
-    color: green[400],
-    '&$checked': {
-      color: green[600],
-    },
-  },
-  checked: {},
-})((props) => <Radio color="default" {...props} />);
-
-export default function Checkout(){
-  const classes = useStyles();
-  const [selectedValue, setSelectedValue] = React.useState('a');
-
-  const handleChange = (event) => {
-    setSelectedValue(event.target.value);
-  };
-
-
-       return(
-      
-           <Page
-             title="Logo"
-             showHeader={true}
-             showFooter={true}
-           >
-               <h2>Orden</h2>
-           <div className="classRadio">
-         
-           <TextField id="outlined-basic" label="Total Orden" variant="outlined"   />
-           <br/>
-           <br/>
-           <h3>Seleccione un metodo de pago</h3>
-           <label>Tarjeta</label>
-      <GreenRadio
-        checked={selectedValue === 'a'}
-        onChange={handleChange}
-        value="a"
-        name="radio-button-demo"
-        inputProps={{ 'aria-label': 'B' }}
-      />
-       <br/>
-       <form className={classes.root} noValidate autoComplete="off">
-      <TextField id="outlined-basic" label="Numero de Tarjeta" variant="outlined"   />
-      <br/>
-      <TextField id="outlined-basic" label="Pin" variant="outlined"    />
-      <br/>
-      <TextField id="outlined-basic" label="Fecha Exp" variant="outlined"   />
-      
-      <br/>
+export default class extends Component {
   
-      <br/>
-      </form>
-      <br/>
-      <label>Efectivo</label>
+  
+     constructor(){
+        super();
+     }
+
+  estilosTextfield()
+  {
+    const useStyles = makeStyles((theme) => ({
+      root: {
+        '& > *': {
+          margin: theme.spacing(1),
+          width: '20ch',
+        },
+      },
+    }));
+  }
+
+       render()
+       {
+
+        return(
+
+
+          <Page
+          title={"Logo"}
+          showHeader={true}
+          showFooter={true}
+  
+         >
+         <h2>Orden</h2>
+         <div className="classRadio">
+  
+         
+          <br/>
+          <br/>
+          <h3>Seleccione un metodo de pago</h3>
+          <label>Tarjeta</label>
+          <input type="radio" id="Tarjeta" name="TipoPago" value="Tarjeta"></input>
+           
+        <br/>
+        <br/>
+        <label>Visa</label>
+          <input type="radio" id="Visa" name="Tarjetas" value="Visa"></input>
+          <label>Mastercard</label>
+          <input type="radio" id="Mastercard" name="Tarjetas" value="Mastercard"></input>
+          <label>American Express</label>
+          <input type="radio" id="American Express" name="Tarjetas" value="Mastercard"></input>
+          <br/>
+          <br/>
+        <TextField id="standard-basic" label="Numero Tarjeta" />
+  
+       
       
-<GreenRadio
-
+          <br/>
+          <br/>
+          <TextField id="standard-basic" label="Codigo Seguridad" />
+  
+          <br/>
+  
+          <br/>
+         <TextField id="standard-basic" label="Fech Exp" />
+          <br/>
+          <br/>
+          <label>Efectivo</label>
+          <input type="radio" id="Efectivo" name="TipoPago" value="Efectivo"></input>
+          <br/>
+          <br/>
+        <TextField id="standard-basic" label="Ingrese monto a pagar" />
+          <br/>
+          <br/>
      
-        checked={selectedValue === 'b'}
-        onChange={handleChange}
-        value="b"
-        name="radio-button-demo"
-        inputProps={{ 'aria-label': 'B' }}
-      />
-    <TextField id="outlined-basic" label="Cantidad a pagar en billete" variant="outlined"   />
-          
-              <br/>
-      <br/>
-           </div> 
-           <br/>
-           <Button
-                fullWidth
-                variant="contained"
-                color="secondary"
-              >
-                Confirmar Pedido
-              </Button>
-                     
-           </Page>
-           );
-     
-    
+          <br/>
+          <br/>
+          </div> 
+          <br/>
+          <Button
+          fullWidth
+          variant="contained"
+          color="secondary"
+          >
+          Confirmar Pedido
+         </Button>
+              
+        </Page>
 
-   }
+
+        );
+
+
+  } 
+   
+}
