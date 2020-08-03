@@ -7,43 +7,38 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
+import {acceso} from '../Pedido'
 import { pedido } from './actions';
 
 export default class extends Component {
-  
   
      constructor(){
         super();
         this.state= {
           tipopago: '',
           open: false
-        }
+        };
         this.onClickButton = this.onClickButton.bind(this);
-        this.onTextChange = this.onTextChange.bind(this);
+        this.onRadioChange = this.onRadioChange.bind(this);
         this.handleToggle = this.handleToggle.bind(this)
+        
      }
 
-     async onClickButton(e) {
-      try {
-        let pedidoData = await pedido();
-        alert("pedido ingresado")
-      } catch (error) {
-        alert("error al ingresar el pedido")
-         throw(error)
-      }
-  }
 
-     clickYes=()=>{
+
+    /*clickYes=()=>{
       this.props.clickYes()
       this.setState({
           open: !this.state.open
-
+         
       })
-  }
+  }*/
 
-  onTextChange(e){
-    const {name, value} = e.target;
-    this.setState({[name]:value});
+  onRadioChange(e)
+  {
+    this.setState({
+        [e.target.name]:e.target.value
+    })
   }
 
   handleToggle = () => {
@@ -69,12 +64,23 @@ export default class extends Component {
     }));
   }
 
+
+
+  async onClickButton(e) {
+    try {
+      let pedidoData = await pedido("s","d","d", "d" ,this.state.tipopago)
+      alert("pedido ingresado")
+    } catch (error) {
+      alert("error al ingresar el pedido")
+       throw(error)
+    }
+}
+
        render()
        {
         const { open } = this.state
         return(
-
-
+      
           <Page
           title={"Logo"}
           showHeader={true}
@@ -89,7 +95,7 @@ export default class extends Component {
           <br/>
           <h3>Seleccione un metodo de pago</h3>
           <label>Tarjeta</label>
-          <input type="radio" id="Tarjeta" name="TipoPago" value="Tarjeta" /*checked = {this.state.tipopago === "Tarjeta"} onChange = {this.onTextChange} */></input>
+          <input type="radio" id="Tarjeta" name="tipopago" value="Tarjeta" checked={this.state.tipopago==="Tarjeta"}  onChange={this.onRadioChange} ></input>
            
         <br/>
         <br/>
@@ -116,7 +122,7 @@ export default class extends Component {
           <br/>
           <br/>
           <label>Efectivo</label>
-          <input type="radio" id="Efectivo" name= "TipoPago" value="Efectivo" /*checked = {this.state.tipopago === "Efectivo"} onChange = {this.onTextChange}*/></input>
+          <input type="radio" id="Efectivo" name="tipopago" value="Efectivo"  checked={this.state.tipopago==="Efectivo"} onChange={this.onRadioChange}></input>
           <br/>
           <br/>
         <TextField id="standard-basic" label="Ingrese monto a pagar" />
@@ -135,10 +141,10 @@ export default class extends Component {
                   </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                  <Button onClick={this.clickYes} color="primary">
+                  <Button onClick={this.onClickButton} color="primary">
                     Si
                   </Button>
-                  <Button onClick={this.handleToggle} color="primary" autoFocus>
+                  <Button   color="primary" autoFocus>
                     No
                   </Button>
                 </DialogActions>

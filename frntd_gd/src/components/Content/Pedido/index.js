@@ -8,14 +8,13 @@ import { Select } from '@material-ui/core';
 import MenuItem from '@material-ui/core/MenuItem';
 
 
-
-
 export default class extends Component{
 
  constructor(){
-   
-     super();
+  
      
+     super();
+  
      this.state = {
        gasolinera: '',
        tipocombustible: '',
@@ -25,8 +24,10 @@ export default class extends Component{
      }
      this.onClickButton = this.onClickButton.bind(this);
      this.onTextChange = this.onTextChange.bind(this);
+   
  }
-
+ 
+ 
  estilosTextfield(){
       const useStyles = makeStyles((theme) => ({
   container: {
@@ -56,15 +57,13 @@ export default class extends Component{
  }
  
  onTextChange(e){
-   
+  
   const {name, value} = e.target;
   this.setState({[name]:value});
 }
 
 async onClickButton(e) {
-  
-    
-  
+ 
 }
 
   render()
@@ -83,8 +82,10 @@ async onClickButton(e) {
              <label>Gasolineras Disponibles: </label>
 
              <Select
+            
              name="gasolinera"
              onChange = {this.onTextChange}
+            
           displayEmpty
           className={this.estilosSelect}
           inputProps={{ 'aria-label': 'Without label' }}
@@ -95,6 +96,7 @@ async onClickButton(e) {
           <MenuItem value={"PumaLasTorres"}>Puma Las Torres</MenuItem>
           <MenuItem value={"UnoAeropuertoToncontin"}>Uno Aeropuerto Toncontin</MenuItem>
         </Select>
+            
             
              <br/>
              <br/>
@@ -149,7 +151,8 @@ async onClickButton(e) {
                 fullWidth
                 variant="contained"
                 color="secondary"
-                onClick={this.onClickButton} 
+                onClick={this.onClickButton}
+               
               >
                 Siguiente
               </Button>
