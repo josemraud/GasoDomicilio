@@ -3,7 +3,10 @@ import Page from '../../Page';
 import {Button} from '@material-ui/core'
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
-
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
 import { pedido } from './actions';
 
 export default class extends Component {
@@ -11,35 +14,48 @@ export default class extends Component {
   
      constructor(){
         super();
-
-        this.state = {
-          gasolinera: '',
-          tipocombustible: '',
-          fecha : '',
-          cantLitros : '',
+        this.state= {
           tipopago: '',
-          estado: 'estado',
-          redirectTo:false
+          open: false
         }
         this.onClickButton = this.onClickButton.bind(this);
         this.onTextChange = this.onTextChange.bind(this);
+        this.handleToggle = this.handleToggle.bind(this)
      }
 
-     onTextChange(e){
-      const {name, value} = e.target;
-      this.setState({[name]:value});
-    }
-
-
-    async onClickButton(e) {
+     async onClickButton(e) {
       try {
-        let pedidoData = await pedido(this.state.gasolinera,this.state.tipocombustible,this.state.fecha,this.state.cantLitros, this.state.tipopago ,this.state.estado);
+        let pedidoData = await pedido();
         alert("pedido ingresado")
       } catch (error) {
         alert("error al ingresar el pedido")
          throw(error)
       }
   }
+
+     clickYes=()=>{
+      this.props.clickYes()
+      this.setState({
+          open: !this.state.open
+
+      })
+  }
+
+  onTextChange(e){
+    const {name, value} = e.target;
+    this.setState({[name]:value});
+  }
+
+  handleToggle = () => {
+      this.setState({
+          open: !this.state.open
+      })
+  }
+
+   
+
+
+    
 
   estilosTextfield()
   {
@@ -55,7 +71,7 @@ export default class extends Component {
 
        render()
        {
-
+        const { open } = this.state
         return(
 
 
@@ -73,7 +89,7 @@ export default class extends Component {
           <br/>
           <h3>Seleccione un metodo de pago</h3>
           <label>Tarjeta</label>
-          <input type="radio" id="Tarjeta" name={"TipoPago"} value="Tarjeta" checked = {this.state.tipopago === "Tarjeta"} onChange = {this.onTextChange} ></input>
+          <input type="radio" id="Tarjeta" name="TipoPago" value="Tarjeta" /*checked = {this.state.tipopago === "Tarjeta"} onChange = {this.onTextChange} */></input>
            
         <br/>
         <br/>
@@ -100,26 +116,39 @@ export default class extends Component {
           <br/>
           <br/>
           <label>Efectivo</label>
-          <input type="radio" id="Efectivo" name= {"TipoPago"} value="Efectivo" checked = {this.state.tipopago === "Efectivo"} onChange = {this.onTextChange}></input>
+          <input type="radio" id="Efectivo" name= "TipoPago" value="Efectivo" /*checked = {this.state.tipopago === "Efectivo"} onChange = {this.onTextChange}*/></input>
           <br/>
           <br/>
         <TextField id="standard-basic" label="Ingrese monto a pagar" />
           <br/>
           <br/>
-     
+          <Button variant="contained" color="primary" onClick={this.handleToggle}>
+                Confirmar Pago
+              </Button>
+              <Dialog
+                open={open}
+                onClose={this.handleToggle}
+              >
+                <DialogContent>
+                  <DialogContentText>
+                    ¿Esta seguro en procesar el pedido?
+                  </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                  <Button onClick={this.clickYes} color="primary">
+                    Si
+                  </Button>
+                  <Button onClick={this.handleToggle} color="primary" autoFocus>
+                    No
+                  </Button>
+                </DialogActions>
+              </Dialog>
           <br/>
           <br/>
           </div> 
           <br/>
-          <Button
-          fullWidth
-          variant="contained"
-          color="secondary"
-           onClick = {this.onClickButton}
-          >
-          Confirmar Pedido
-         </Button>
-              
+    
+     
         </Page>
 
 

@@ -145,6 +145,7 @@ async onClickButton(e) {
 
              <NavLinkBtn  toLink="/checkout">
              <Button
+               
                 fullWidth
                 variant="contained"
                 color="secondary"
