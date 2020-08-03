@@ -4,14 +4,42 @@ import {Button} from '@material-ui/core'
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 
-
+import { pedido } from './actions';
 
 export default class extends Component {
   
   
      constructor(){
         super();
+
+        this.state = {
+          gasolinera: '',
+          tipocombustible: '',
+          fecha : '',
+          cantLitros : '',
+          tipopago: '',
+          estado: 'estado',
+          redirectTo:false
+        }
+        this.onClickButton = this.onClickButton.bind(this);
+        this.onTextChange = this.onTextChange.bind(this);
      }
+
+     onTextChange(e){
+      const {name, value} = e.target;
+      this.setState({[name]:value});
+    }
+
+
+    async onClickButton(e) {
+      try {
+        let pedidoData = await pedido(this.state.gasolinera,this.state.tipocombustible,this.state.fecha,this.state.cantLitros,this.state.estado);
+        alert("pedido ingresado")
+      } catch (error) {
+        alert("error al ingresar el pedido")
+         throw(error)
+      }
+  }
 
   estilosTextfield()
   {
@@ -54,7 +82,7 @@ export default class extends Component {
           <label>Mastercard</label>
           <input type="radio" id="Mastercard" name="Tarjetas" value="Mastercard"></input>
           <label>American Express</label>
-          <input type="radio" id="American Express" name="Tarjetas" value="Mastercard"></input>
+          <input type="radio" id="American Express" name="Tarjetas" value="American Express"></input>
           <br/>
           <br/>
         <TextField id="standard-basic" label="Numero Tarjeta" />

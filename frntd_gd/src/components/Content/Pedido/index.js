@@ -6,7 +6,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import { Select } from '@material-ui/core';
 import MenuItem from '@material-ui/core/MenuItem';
-import { pedido } from './actions';
 
 
 
@@ -63,13 +62,7 @@ export default class extends Component{
 }
 
 async onClickButton(e) {
-  try {
-    let pedidoData = await pedido(this.state.gasolinera,this.state.tipocombustible,this.state.fecha,this.state.cantLitros,this.state.estado);
-    alert("pedido ingresado")
-  } catch (error) {
-    alert("error al ingresar el pedido")
-     throw(error)
-  }
+  
     
   
 }

@@ -59,7 +59,7 @@ module.exports = class {
     }//Mostrar ordenes no entregadas
 
 
-    static async addOrden (gasolinera, tipocombustible, fecha , cantLitros, estado){
+    static async addOrden (gasolinera, tipocombustible, fecha , cantLitros, tipopago ,estado){
         try{
             let orden = {
               gasolinera,  
@@ -71,7 +71,7 @@ module.exports = class {
                 coordinates: [longitud, latitud ]
               },
               radioKM,*/ 
-              //tipoPago,
+              tipoPago,
               estado: estado
             };
             let result = await pedidosColl.insertOne(orden);            

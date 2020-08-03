@@ -44,12 +44,12 @@ router.get('/info/noEntregado/:estado', async (req, res)=>{
 
 router.post('/addorden',async(req,res)=>{
     try{
-        var {gasolinera, tipocombustible, fecha , cantLitros} = req.body;
+        var {gasolinera, tipocombustible, fecha , cantLitros , tipopago} = req.body;
         var estado = "no entregado"
         /*latitud = parseFloat(latitud)
         longitud = parseFloat(longitud)
         radioKM = parseFloat(radioKM)*/
-        var resultado = await model.addOrden(gasolinera, tipocombustible, fecha , cantLitros,estado);
+        var resultado = await model.addOrden(gasolinera, tipocombustible, fecha , cantLitros , tipopago ,estado);
         res.status(200).json(resultado)
     } catch (error){
         console.log(error)
