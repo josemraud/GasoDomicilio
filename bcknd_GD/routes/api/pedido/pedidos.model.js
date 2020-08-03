@@ -71,7 +71,7 @@ module.exports = class {
                 coordinates: [longitud, latitud ]
               },
               radioKM,*/ 
-              tipoPago,
+              tipopago,
               estado: estado
             };
             let result = await pedidosColl.insertOne(orden);            

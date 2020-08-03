@@ -33,7 +33,7 @@ export default class extends Component {
 
     async onClickButton(e) {
       try {
-        let pedidoData = await pedido(this.state.gasolinera,this.state.tipocombustible,this.state.fecha,this.state.cantLitros,this.state.estado);
+        let pedidoData = await pedido(this.state.gasolinera,this.state.tipocombustible,this.state.fecha,this.state.cantLitros, this.state.tipopago ,this.state.estado);
         alert("pedido ingresado")
       } catch (error) {
         alert("error al ingresar el pedido")
@@ -73,7 +73,7 @@ export default class extends Component {
           <br/>
           <h3>Seleccione un metodo de pago</h3>
           <label>Tarjeta</label>
-          <input type="radio" id="Tarjeta" name="TipoPago" value="Tarjeta"></input>
+          <input type="radio" id="Tarjeta" name={"TipoPago"} value="Tarjeta" checked = {this.state.tipopago === "Tarjeta"} onChange = {this.onTextChange} ></input>
            
         <br/>
         <br/>
@@ -100,7 +100,7 @@ export default class extends Component {
           <br/>
           <br/>
           <label>Efectivo</label>
-          <input type="radio" id="Efectivo" name="TipoPago" value="Efectivo"></input>
+          <input type="radio" id="Efectivo" name= {"TipoPago"} value="Efectivo" checked = {this.state.tipopago === "Efectivo"} onChange = {this.onTextChange}></input>
           <br/>
           <br/>
         <TextField id="standard-basic" label="Ingrese monto a pagar" />
@@ -115,6 +115,7 @@ export default class extends Component {
           fullWidth
           variant="contained"
           color="secondary"
+           onClick = {this.onClickButton}
           >
           Confirmar Pedido
          </Button>
