@@ -87,7 +87,8 @@ export default class extends Component {
         >
           <div className="contenedor">
                 <div className="imagen">
-                  <GrUserManager size="10em" />
+                
+                <GrUserManager size="10em" />
                 </div>
                 <section>
                   <fieldset>

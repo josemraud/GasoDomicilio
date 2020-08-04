@@ -69,7 +69,7 @@ async onClickButton(e) {
     return(
          
         <Page
-          title="Logo"
+          title="Pedido"
           showHeader={true}
           showFooter={true}
           //auth={this.props.auth}
@@ -145,11 +145,15 @@ async onClickButton(e) {
              />
              <br/>
              <br/>
+             <div className="Btn_grbg">
+             <NavLink to={`/checkout/${this.state.gasolinera}/${this.state.tipocombustible}/${this.state.fecha}/${this.state.cantLitros}`}>
+              Siguiente
+              
+            </NavLink>
+            </div>
              </div>
             
-            <NavLink to={`/checkout/${this.state.gasolinera}/${this.state.tipocombustible}/${this.state.fecha}/${this.state.cantLitros}`}>
-              Siguiente
-            </NavLink>
+            
         </Page>
         )
   }
