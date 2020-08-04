@@ -10,6 +10,8 @@ privateaxios.defaults.headers.common['cache-control'] = "no-cache";
 privateaxios.defaults.headers.post['Content-Type'] = "no-cache";
 privateaxios.defaults.headers.put['Content-Type'] = "no-cache";
 
+
+
 export const setJWT = (jwt)=>{
   privateaxios.defaults.headers.common["Authorization"] = `Bearer ${jwt}`;
   //todo: set jwt to axios private instance
