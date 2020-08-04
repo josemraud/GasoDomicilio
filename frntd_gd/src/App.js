@@ -13,6 +13,7 @@ import Registrarse from './components/Content/SignUp'
 import Pedido from './components/Content/Pedido'
 import Recuperacion from './components/Content/Recuperacion'
 import Checkout from './components/Content/Checkout'
+import Historial from './components/Content/Historial/historial'
 
 
 export default class extends Component{
@@ -95,6 +96,7 @@ export default class extends Component{
           <PRoute path="/perfil" component={Perfil} exact auth={auth} />
           <PRoute path="/pedido" component={Pedido} exact auth={auth} />
           <PRoute path="/checkout/:gasolinera/:tipocombustible/:fecha/:cantLitros" component={Checkout} exact auth={auth}/>
+          <PRoute path="/historial" component={Historial} exact auth={auth} />
         </Switch>
       </Router>
     );

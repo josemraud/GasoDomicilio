@@ -48,7 +48,13 @@ export default class extends Component {
 
  
    
-
+  componentDidMount(){
+    if("geolocation" in navigator){
+      console.log("Availabe");
+    } else {
+      console.log("Not avaialbe");
+    }
+  }
 
     
 
@@ -77,7 +83,7 @@ export default class extends Component {
         window.location.reload()
        throw(error)
     }
-}
+  }
 
        render()
        {
