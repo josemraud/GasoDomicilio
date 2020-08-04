@@ -4,6 +4,7 @@ import CreateDialog from '../../Dialog/CambiarPass'
 import {GrUserManager} from 'react-icons/gr'
 
 import {obtenerPerfil, cambiarPassword} from './actions';
+import { Button } from '@material-ui/core';
 
 //import './conductor.css'
 
@@ -43,6 +44,8 @@ export default class extends Component {
         window.location.reload()
       }
     }
+
+    
 
     async componentDidMount(){
       try {

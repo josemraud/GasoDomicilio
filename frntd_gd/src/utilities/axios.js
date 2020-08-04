@@ -57,6 +57,19 @@ const localStorageAvailable = (
   }
 )()
 
+const sessionStorageAvailable = (
+  () => {
+    let t = "t";
+    try {
+      sessionStorage.setItem(t, t);
+      sessionStorage.removeItem(t);
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+)()
+
 export const getLocalStorage = (key)=>{
   if(localStorageAvailable){
     return localStorage.getItem(key);
@@ -77,6 +90,33 @@ export const setLocalStorage = (key, value) => {
 export const removeLocalStorage = (key) => {
   if (localStorageAvailable) {
     localStorage.removeItem(key);
+    return true;
+  } else {
+    return false;
+  }
+}
+
+//Session
+export const getSessionStorage = (key) => {
+  if (sessionStorageAvailable) {
+    return sessionStorage.getItem(key);
+  } else {
+    return null;
+  }
+}
+
+export const setSessionStorage = (key, value) => {
+  if (sessionStorageAvailable) {
+    sessionStorage.setItem(key, value);
+    return true;
+  } else {
+    return false;
+  }
+}
+
+export const removeSessionStorage = (key) => {
+  if (sessionStorageAvailable) {
+    sessionStorage.removeItem(key);
     return true;
   } else {
     return false;

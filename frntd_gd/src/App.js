@@ -37,8 +37,9 @@ export default class extends Component{
 
   componentDidMount(){
     this.setState({"loadingBackend":true});
-    console.log(this.state.loadingBackend);
+    //console.log(this.state.loadingBackend);
   }
+
  setLogginData(user, jwt){
     this.setState({
       ...this.state,

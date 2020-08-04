@@ -1,9 +1,9 @@
-import {paxios} from '../../../utilities/axios';
+import {naxios} from '../../../utilities/axios';
 
 export const login = async (email, password)=>{
   try
   {
-    const {data} = await paxios.post(
+    const {data} = await naxios.post(
       "/api/sec/ingresar",
       {
         correo: email,
