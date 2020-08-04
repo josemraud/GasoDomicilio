@@ -90,7 +90,7 @@ export default class extends Component{
           <Route path="/" component={Home} exact />
           <NRoute path="/login" component={Login} exact auth={auth} />
           <NRoute path="/signup" component={Registrarse} exact auth={auth} />
-          <PRoute path="/recuperacion" component={Recuperacion} exact auth={auth} />
+          <NRoute path="/recuperacion" component={Recuperacion} exact auth={auth} />
           <PRoute path="/perfil" component={Perfil} exact auth={auth} />
           <PRoute path="/pedido" component={Pedido} exact auth={auth} />
           <PRoute path="/checkout/:gasolinera/:tipocombustible/:fecha/:cantLitros" component={Checkout} exact auth={auth}/>

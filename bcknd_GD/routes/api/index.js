@@ -33,6 +33,6 @@ const jwtAuthMiddleware = passport.authenticate('jwt', {session:false});
 
 //Privadas
 router.use("/perfil", jwtAuthMiddleware ,priv)
-//router.use("/pedido",jwtAuthMiddleware, pedidosRoutes );
+router.use("/pedido",jwtAuthMiddleware, pedidosRoutes );
 
 module.exports = router;
