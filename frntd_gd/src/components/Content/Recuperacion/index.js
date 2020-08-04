@@ -50,7 +50,7 @@ export default class extends Component {
             showFooter={true}
             >
 
-                <div className="contenedor">
+                <div className="cont">
                     <div>
                         <h2>¿Has olvidado tu Contraseña?</h2>
                     </div>
