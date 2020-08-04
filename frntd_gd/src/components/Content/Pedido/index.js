@@ -93,6 +93,10 @@ async onClickButton(e) {
           </MenuItem>
           <MenuItem value={"PumaLasTorres"}>Puma Las Torres</MenuItem>
           <MenuItem value={"UnoAeropuertoToncontin"}>Uno Aeropuerto Toncontin</MenuItem>
+          <MenuItem value={"Texaco Citymall"}>Texaco Citymall</MenuItem>
+          <MenuItem value={"Shell Col El Pedregal"}>Shell Col El Pedregal</MenuItem>
+          <MenuItem value={"Uno Carretera Norte"}>Uno Carretera Norte</MenuItem>
+          <MenuItem value={"Puma Col Los Andes"}>Puma Col Los Andes</MenuItem>
         </Select>
             
             
