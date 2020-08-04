@@ -8,6 +8,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import { pedido } from './actions';
+import { useParams } from 'react-router-dom';
 export default class extends Component {
   
      constructor(){
@@ -45,6 +46,7 @@ export default class extends Component {
       })
   }
 
+ 
    
 
 
@@ -67,10 +69,12 @@ export default class extends Component {
   async onClickButton(e) {
 
     try {
-      let pedidoData = await pedido("","","", "" ,this.state.tipopago)
+      let pedidoData = await pedido(this.props.match.params.gasolinera,this.props.match.params.tipocombustible,this.props.match.params.fecha, this.props.match.params.cantLitros ,this.state.tipopago)
       alert("pedido ingresado")
+      window.location.reload()
     } catch (error) {
       alert("error al ingresar el pedido")
+        window.location.reload()
        throw(error)
     }
 }
@@ -143,7 +147,7 @@ export default class extends Component {
                   <Button onClick={this.onClickButton} color="primary">
                     Si
                   </Button>
-                  <Button   color="primary" autoFocus>
+                  <Button onClick = {this.handleToggle}   color="primary"  autoFocus >
                     No
                   </Button>
                 </DialogActions>
