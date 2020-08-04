@@ -4,6 +4,7 @@ import CreateDialog from '../../Dialog/CambiarPass'
 import {GrUserManager} from 'react-icons/gr'
 
 import {obtenerPerfil, cambiarPassword} from './actions';
+import { NavLink } from 'react-router-dom';
 import { Button } from '@material-ui/core';
 
 //import './conductor.css'
@@ -102,9 +103,15 @@ export default class extends Component {
                     <br/>
                     <label>Contrasena nueva:</label>
                     <input type="password" name="newPassword" onChange={this.onTextChange} value={this.state.newPassword}/>
-                    
                     <CreateDialog clickYes={this.onclickConfirm}/>
+
+                    <Button variant="contained" color="secondary">
+                      <NavLink to={'/historial'} >
+                        Historial de Pedidos
+                      </NavLink>
+                    </Button>
                   </fieldset>
+                  
                 </section>
           </div>  
         </Page>

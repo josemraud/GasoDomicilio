@@ -8,18 +8,28 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import { pedido } from './actions';
-import { useParams } from 'react-router-dom';
+import { Map, GoogleApiWrapper, Marker  } from 'google-maps-react';
+
+const mapStyles = {
+  width: '100%',
+  height: '100%'
+};
+
 export default class extends Component {
   
      constructor(){
         super();
         this.state= {
           tipopago: '',
-          open: false
+          open: false,
+          latitud:'',
+          longitud:''
         };
         this.onClickButton = this.onClickButton.bind(this);
         this.onRadioChange = this.onRadioChange.bind(this);
         this.handleToggle = this.handleToggle.bind(this)
+
+        
      
      }
 
@@ -48,7 +58,7 @@ export default class extends Component {
 
  
    
-
+  
 
     
 
@@ -77,7 +87,7 @@ export default class extends Component {
         window.location.reload()
        throw(error)
     }
-}
+  }
 
        render()
        {
@@ -92,7 +102,6 @@ export default class extends Component {
          >
          <h2>Orden</h2>
          <div className="classRadio">
-  
          
           <br/>
           <br/>
