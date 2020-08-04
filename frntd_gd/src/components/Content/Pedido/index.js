@@ -1,6 +1,6 @@
 import React , {Component} from 'react';
 import Page from '../../Page';
-import {NavLinkBtn} from '../../Button';
+import {NavLink} from 'react-router-dom';
 import {Button} from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
@@ -9,22 +9,21 @@ import MenuItem from '@material-ui/core/MenuItem';
 
 
 export default class extends Component{
-
+ 
  constructor(){
   
      
      super();
-  
-     this.state = {
-       gasolinera: '',
-       tipocombustible: '',
-       fecha : '',
-       cantLitros : '',
-       estado: 'estado',
-     }
+   this.state = {
+     gasolinera:'',
+     tipocombustible: '',
+    fecha : '',
+    cantLitros : '',
+    estado: 'estado'
+  }
+     
      this.onClickButton = this.onClickButton.bind(this);
      this.onTextChange = this.onTextChange.bind(this);
-   
  }
  
  
@@ -63,7 +62,6 @@ export default class extends Component{
 }
 
 async onClickButton(e) {
- 
 }
 
   render()
@@ -143,23 +141,11 @@ async onClickButton(e) {
              />
              <br/>
              <br/>
-             <div>
-
-             <NavLinkBtn  toLink="/checkout">
-             <Button
-               
-                fullWidth
-                variant="contained"
-                color="secondary"
-                onClick={this.onClickButton}
-               
-              >
-                Siguiente
-              </Button>
-              </NavLinkBtn>
-            
              </div>
-          </div>
+            
+            <NavLink to={`/checkout/${this.state.gasolinera}/${this.state.tipocombustible}/${this.state.fecha}/${this.state.cantLitros}`}>
+              Siguiente
+            </NavLink>
         </Page>
         )
   }

@@ -7,9 +7,7 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
-import {acceso} from '../Pedido'
 import { pedido } from './actions';
-
 export default class extends Component {
   
      constructor(){
@@ -21,7 +19,7 @@ export default class extends Component {
         this.onClickButton = this.onClickButton.bind(this);
         this.onRadioChange = this.onRadioChange.bind(this);
         this.handleToggle = this.handleToggle.bind(this)
-        
+     
      }
 
 
@@ -67,8 +65,9 @@ export default class extends Component {
 
 
   async onClickButton(e) {
+
     try {
-      let pedidoData = await pedido("s","d","d", "d" ,this.state.tipopago)
+      let pedidoData = await pedido("","","", "" ,this.state.tipopago)
       alert("pedido ingresado")
     } catch (error) {
       alert("error al ingresar el pedido")
@@ -113,7 +112,7 @@ export default class extends Component {
       
           <br/>
           <br/>
-          <TextField id="standard-basic" label="Codigo Seguridad" />
+          <TextField  id="standard-basic" label="Codigo Seguridad" />
   
           <br/>
   
@@ -149,6 +148,8 @@ export default class extends Component {
                   </Button>
                 </DialogActions>
               </Dialog>
+
+
           <br/>
           <br/>
           </div> 
