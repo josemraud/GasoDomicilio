@@ -1,11 +1,9 @@
 import React,{Component} from 'react';
 import Page from '../../Page';
 import CreateDialog from '../../Dialog/CambiarPass'
-import {GrUserManager} from 'react-icons/gr'
-
+import {FaUserAstronaut} from 'react-icons/fa'
+import buttonLibs from '../../Button/index' 
 import {obtenerPerfil, cambiarPassword} from './actions';
-import { NavLink } from 'react-router-dom';
-import { Button } from '@material-ui/core';
 
 //import './conductor.css'
 
@@ -85,32 +83,33 @@ export default class extends Component {
           showHeader={true}
           showFooter={true}
         >
-          <div className="contenedor">
+          <div className="contenedorPerfil">
                 <div className="imagen">
-                
-                <GrUserManager size="10em" />
+                <FaUserAstronaut size="10em" />
                 </div>
-                <section>
-                  <fieldset>
+                <section className="datos">
+                  <fieldset className="perfil">
                     <h4>Datos de usuario</h4>
                     <section>
                       {usuario}
                     </section>
 
                     <hr></hr>
-                    <h4>Cambiar contrasena</h4>
+                    <h4>Cambiar contraseña</h4>
                     <label>Contrasena actual:</label>
                     <input type="text" name="oldPassword" onChange={this.onTextChange} value={this.state.oldPassword}/>
                     <br/>
-                    <label>Contrasena nueva:</label>
+                    <label>Contraseña nueva:</label>
                     <input type="password" name="newPassword" onChange={this.onTextChange} value={this.state.newPassword}/>
-                    <CreateDialog clickYes={this.onclickConfirm}/>
-
-                    <Button variant="contained" color="secondary">
-                      <NavLink to={'/historial'} >
+                    
+                    <div className="botones">
+                      <CreateDialog clickYes={this.onclickConfirm}/>
+                      
+                      <buttonLibs.NavLinkBtn to={"/historial"}>
                         Historial de Pedidos
-                      </NavLink>
-                    </Button>
+                      </buttonLibs.NavLinkBtn>
+                    </div>
+                    
                   </fieldset>
                   
                 </section>

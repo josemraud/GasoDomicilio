@@ -12,7 +12,7 @@ buttonLibs.StandardBtn = (p)=>{
 
 buttonLibs.NavLinkBtn = (p) => {
   let { children, toLink, className, ...props } = p;
-  toLink = (toLink) ? toLink : "/";
+  toLink = (toLink) ? toLink : "/historial";
   className = (className) ? "btn "+className : "btn primary";
   return (<NavLink to={toLink} className={className} onClick={onclick}>{children}</NavLink>)
 }

@@ -4,9 +4,8 @@ import Page from '../../Page';
 import './historial.css'
 
 import {allPedidos} from './actions';
-import { NavLink } from 'react-router-dom';
-import { IoIosInformationCircle } from 'react-icons/io'
-import { setSessionStorage, getSessionStorage } from '../../../utilities/axios';
+
+import { getSessionStorage } from '../../../utilities/axios';
 
 export default class extends Component{
     constructor(){
@@ -32,7 +31,7 @@ export default class extends Component{
         
     
     scrollHandler(e){
-      if (this.scrolled == true ){
+      if (this.scrolled === true ){
         let { scrollTop} = e.target;
         this.setState({scrollTop:scrollTop});
       }
@@ -42,6 +41,7 @@ export default class extends Component{
       const pedidosList = this.state.pedidos.map((o)=>{
         return (<div key={o._id} id={o._id} className="listItem">
           <b>Gasolinera: {o.gasolinera}</b> || <b>Combustible: {o.tipocombustible}</b> || <b>{o.cantLitros}Lt.</b> || <b>{o.fecha}</b> || <b>Pago: {o.tipopago}</b>
+          
         </div>);
       });
       return (

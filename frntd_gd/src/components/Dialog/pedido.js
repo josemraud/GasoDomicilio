@@ -16,12 +16,7 @@ export default class extends Component{
         this.handleToggle = this.handleToggle.bind(this)
     }
 
-    clickYes=()=>{
-        this.props.clickYes()
-        this.setState({
-            open: !this.state.open
-        })
-    }
+    
 
     handleToggle = () => {
         this.setState({
@@ -34,24 +29,18 @@ export default class extends Component{
 
         return (
             <div>
-              <Button variant="contained" color="primary" onClick={this.handleToggle}>
-                cambiar
-              </Button>
               <Dialog
                 open={open}
                 onClose={this.handleToggle}
               >
                 <DialogContent>
                   <DialogContentText>
-                    ¿Seguro que desea cambiar su contraseña?
+                    Pedido Confirmado
                   </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                  <Button onClick={this.clickYes} color="primary">
-                    Si
-                  </Button>
-                  <Button onClick={this.handleToggle} color="primary" autoFocus>
-                    No
+                  <Button onClick={this.handleToggle} color="primary">
+                    Regresar
                   </Button>
                 </DialogActions>
               </Dialog>

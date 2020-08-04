@@ -2,13 +2,12 @@ import React,{Component} from 'react';
 import Page from '../../Page';
 import {Button} from '@material-ui/core'
 import TextField from '@material-ui/core/TextField';
-import { makeStyles } from '@material-ui/core/styles';
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import { pedido } from './actions';
-import { Map, GoogleApiWrapper, Marker  } from 'google-maps-react';
+import {FaCcVisa,FaCcMastercard, FaCcAmex} from 'react-icons/fa'
 
 const mapStyles = {
   width: '100%',
@@ -33,16 +32,6 @@ export default class extends Component {
      
      }
 
-
-
-    /*clickYes=()=>{
-      this.props.clickYes()
-      this.setState({
-          open: !this.state.open
-         
-      })
-  }*/
-
   onRadioChange(e)
   {
     this.setState({
@@ -62,25 +51,14 @@ export default class extends Component {
 
     
 
-  estilosTextfield()
-  {
-    const useStyles = makeStyles((theme) => ({
-      root: {
-        '& > *': {
-          margin: theme.spacing(1),
-          width: '20ch',
-        },
-      },
-    }));
-  }
-
-
+ 
+  
 
   async onClickButton(e) {
-
+    
     try {
-      let pedidoData = await pedido(this.props.match.params.gasolinera,this.props.match.params.tipocombustible,this.props.match.params.fecha, this.props.match.params.cantLitros ,this.state.tipopago)
-      alert("pedido ingresado")
+      let pedidoData = await pedido(this.props.match.params.gasolinera,this.props.match.params.tipocombustible,this.props.match.params.fecha, this.props.match.params.cantLitros ,this.state.tipopago, this.state.total)
+      
       window.location.reload()
     } catch (error) {
       alert("error al ingresar el pedido")
@@ -95,49 +73,52 @@ export default class extends Component {
         return(
       
           <Page
-          title={"Logo"}
+          title={"Checkout"}
           showHeader={true}
           showFooter={true}
   
          >
-         <h2>Orden</h2>
-         <div className="classRadio">
          
+         <div className="classRadio">
+          <h1>Informacion de Pago</h1>
+          <h3>Total a pagar: Lps.{(this.props.match.params.cantLitros * 90)}</h3>
           <br/>
           <br/>
           <h3>Seleccione un metodo de pago</h3>
+          <hr></hr>
           <label>Tarjeta</label>
           <input type="radio" id="Tarjeta" name="tipopago" value="Tarjeta" checked={this.state.tipopago==="Tarjeta"}  onChange={this.onRadioChange} ></input>
            
         <br/>
         <br/>
-        <label>Visa</label>
+          <FaCcVisa size="3em"/>
           <input type="radio" id="Visa" name="Tarjetas" value="Visa"></input>
-          <label>Mastercard</label>
+          <FaCcMastercard size="3em"/>
           <input type="radio" id="Mastercard" name="Tarjetas" value="Mastercard"></input>
-          <label>American Express</label>
+          <FaCcAmex size="3em"/>
           <input type="radio" id="American Express" name="Tarjetas" value="American Express"></input>
           <br/>
           <br/>
-        <TextField id="standard-basic" label="Numero Tarjeta" />
+        <TextField  label="Numero Tarjeta" variant="filled" />
   
        
       
           <br/>
           <br/>
-          <TextField  id="standard-basic" label="Codigo Seguridad" />
+          <TextField   label="Codigo Seguridad" variant="filled"/>
   
           <br/>
   
           <br/>
-         <TextField id="standard-basic" label="Fech Exp" />
+         <TextField label="Fech Exp" variant="filled"/>
           <br/>
           <br/>
+          <hr></hr>
           <label>Efectivo</label>
           <input type="radio" id="Efectivo" name="tipopago" value="Efectivo"  checked={this.state.tipopago==="Efectivo"} onChange={this.onRadioChange}></input>
           <br/>
           <br/>
-        <TextField id="standard-basic" label="Ingrese monto a pagar" />
+        <TextField  label="Ingrese monto a pagar" variant="filled" />
           <br/>
           <br/>
           <Button variant="contained" color="primary" onClick={this.handleToggle}>

@@ -13,10 +13,7 @@ main{
 form{
   background-color:#303030;
   color: white;
-  
-  
-  
-  
+
 }
 input[type=text]{
  background-color:white;
@@ -72,4 +69,55 @@ margin-left: 30%;
 margin-right: 30%;
 border-radius: 10%;
 
+}
+
+.contenedorPerfil{
+  display: flexbox;
+  justify-content: space-around;
+  align-items: center;
+  font-family: 'Rowdies', cursive;
+  text-align: center;
+  border: lightsteelblue;
+  border-radius: 10rem;
+  padding: 10px;
+}
+
+.datos{
+  display: flex;
+  padding: 10% 10% 30% 10%;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagen{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.botones{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 1rem;
+  
+}
+
+.perfil{
+  border-style: double;
+  border-radius: 2em;
+
+}
+
+
+.classRadio{
+  display: flexbox;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.classRadio h1{
+  font-size: 2em;
 }
