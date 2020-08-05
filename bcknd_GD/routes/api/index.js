@@ -26,7 +26,7 @@ var {priv, pub} = require('./perfil')
 
 //publicas no requieres estar autenticados para ser consumidos
 router.use("/sec", secRoutes);
-router.use("/pedido",pedidosRoutes)
+//router.use("/pedido",pedidosRoutes)
 //router.use("/conductor", pub)
 
 const jwtAuthMiddleware = passport.authenticate('jwt', {session:false});

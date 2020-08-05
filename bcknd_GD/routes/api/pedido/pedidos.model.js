@@ -23,10 +23,12 @@ module.exports = class {
       }
     }
 
-    static async getAllOrdenes(){
+    static async getAllOrdenes(usuario){
       try{
         if(pedidosColl){
-          let registro = await pedidosColl.find();
+          let registro = await pedidosColl.find({
+            "usuario":ObjectId(usuario)
+          });
           return registro.toArray();
         }
         return [];
@@ -59,7 +61,7 @@ module.exports = class {
     }//Mostrar ordenes no entregadas
 
 
-    static async addOrden (gasolinera, tipocombustible, fecha , cantLitros, tipopago ,estado){
+    static async addOrden (gasolinera, tipocombustible, fecha , cantLitros, tipopago ,estado, usuario){
         try{
             let orden = {
               gasolinera,  
@@ -72,7 +74,8 @@ module.exports = class {
               },
               radioKM,*/ 
               tipopago,
-              estado: estado
+              estado: estado,
+              usuario:ObjectId(usuario)
             };
             let result = await pedidosColl.insertOne(orden);            
             return result            

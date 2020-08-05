@@ -9,7 +9,9 @@ init();
 
 router.get('/ordenes', async(req,res)=>{
     try {
-        let ordenes = await model.getAllOrdenes();
+        var usuario = req.user._id;
+        let ordenes = await model.getAllOrdenes(usuario);
+
         res.status(200).json(ordenes);
     } catch (err) {
         console.log(err);
@@ -45,11 +47,12 @@ router.get('/info/noEntregado/:estado', async (req, res)=>{
 router.post('/addorden',async(req,res)=>{
     try{
         var {gasolinera, tipocombustible, fecha , cantLitros , tipopago} = req.body;
+        var usuario = req.user._id
         var estado = "no entregado"
         /*latitud = parseFloat(latitud)
         longitud = parseFloat(longitud)
         radioKM = parseFloat(radioKM)*/
-        var resultado = await model.addOrden(gasolinera, tipocombustible, fecha , cantLitros , tipopago ,estado);
+        var resultado = await model.addOrden(gasolinera, tipocombustible, fecha , cantLitros , tipopago ,estado,usuario);
         res.status(200).json(resultado)
     } catch (error){
         console.log(error)
