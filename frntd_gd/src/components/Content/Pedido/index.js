@@ -76,6 +76,7 @@ async onClickButton(e) {
           <div className="classPedido">
             
              <h2>Realice su Pedido</h2>
+             <hr></hr>
              <label>Gasolineras Disponibles: </label>
 
              <Select

@@ -4,9 +4,9 @@ main{
   background-color: #303030;
   color: white;
   margin-bottom: 1.5em;
-  margin-top: 0em;
+  margin-top: 0;
   font-family: 'Varta', sans-serif;
-  max-width: 500px;
+  max-width: 100%;
   
 }
 
@@ -110,6 +110,13 @@ border-radius: 10%;
 
 }
 
+.classPedido{
+  display: flexbox;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+} 
 
 .classRadio{
   display: flexbox;
